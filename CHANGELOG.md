@@ -1,5 +1,13 @@
 # Changelog
 
+## 3.0.0（2026-11-20）
+
+- 依工作階段重組成 11 個 skill：pm-setup、pm-intake、pm-discover、pm-plan、pm-spec、pm-review、pm-design、pm-ship、pm-ticket、pm-launch、pm-report
+- 原本的 skill 與 command 改成各 skill 底下的子指令，做法放在 `reference/`
+- 兩套開票合成 `pm-ticket`；審查、補強、自查合成 `pm-review`（新增 `all`）；commit、PR、收尾合成 `pm-ship`
+- 寫作規則、共用底線、調研原則合成 `shared/`
+- 拿掉 `spec-repo-bridge` 與 2 個 agent；公司專屬設定改放 `~/.claude/pm-config.md`，新增範本 `pm-config.example.md`
+
 ## 2.0.0（2026-11-20）
 
 - 合併成單一 plugin `pm-workflow`，依工作階段呈現完整流程

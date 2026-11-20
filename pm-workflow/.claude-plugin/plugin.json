@@ -1,12 +1,21 @@
 {
   "name": "pm-workflow",
-  "version": "2.0.0",
+  "version": "3.0.0",
   "description": "軟體 PM 的完整工作流（繁體中文）：調研與方向收斂、以 Git 管理的規格撰寫與審查、送審與開票、決策文件、release note、跨部門影響盤點、每日與每週進度同步。",
   "author": {
     "name": "TsuWebber",
     "url": "https://github.com/TsuWebber"
   },
-  "keywords": ["product-management", "spec", "prd", "acceptance-criteria", "jira", "release-note", "qa", "traditional-chinese"],
+  "keywords": [
+    "product-management",
+    "spec",
+    "prd",
+    "acceptance-criteria",
+    "jira",
+    "release-note",
+    "qa",
+    "traditional-chinese"
+  ],
   "homepage": "https://github.com/TsuWebber/pm-workflow-skills",
   "license": "MIT"
 }

@@ -1,60 +1,32 @@
 # pm-workflow
 
-軟體 PM 完整工作流的 Claude Code plugin。依工作階段整理如下，📝 為作者自己撰寫，👥 改寫自團隊共用的規格庫。
+軟體 PM 完整工作流的 Claude Code plugin。11 個 skill，一個階段一個入口，底下用子指令區分：`/pm-<階段> <子指令> [對象]`。
 
-## Skill（24）
+## Skill（11）
 
-| 階段 | Skill | 來源 | 做什麼 |
-|---|---|---|---|
-| 準備 | [`pm`](skills/pm/SKILL.md) | 📝 | PM 工作流入口，9 個子指令（init、decide、release、ticket、review、harden、impact、distill、clarify） |
-| | [`setup`](skills/setup/SKILL.md) | 👥 | 一次裝好規格庫需要的工具並完成授權 |
-| | [`spec-repo-bridge`](skills/spec-repo-bridge/SKILL.md) | 📝 | 在規格庫以外的資料夾叫用規格 skill |
-| 調研・定方向 | [`discovery-case-scan`](skills/discovery-case-scan/SKILL.md) | 👥 | 收集解法案例：別人怎麼做、誰做不好 |
-| | [`discovery-pain-evidence`](skills/discovery-pain-evidence/SKILL.md) | 👥 | 把痛點落成可追溯的實例證據 |
-| | [`to-planning`](skills/to-planning/SKILL.md) | 👥 | 還沒成形的規劃素材整理進流程 |
-| | [`spec-plan`](skills/spec-plan/SKILL.md) | 👥 | 想清楚要不要做、範圍到哪，建 drafts 資料夾 |
-| | [`meeting-to-actions`](skills/meeting-to-actions/SKILL.md) | 👥 | 會議記錄轉成決策、待辦與規格增補提案 |
-| | [`from-notion`](skills/from-notion/SKILL.md) | 👥 | Notion 上的規格搬進 drafts |
-| 寫規格 | [`spec-write`](skills/spec-write/SKILL.md) | 👥 | 寫 spec.md，含 AC 與指標 |
-| | [`human-readable-writing`](skills/human-readable-writing/SKILL.md) | 👥 | 中英文寫作格式與用語規則 |
-| | [`images-to-drive`](skills/images-to-drive/SKILL.md) | 👥 | 規格圖片搬到 Google Drive，換成連結 |
-| 審查・設計對齊 | [`spec-review`](skills/spec-review/SKILL.md) | 👥 | QA 角度挑規格問題 |
-| | [`design-review`](skills/design-review/SKILL.md) | 👥 | 設計師修改記成 DR，PM 拍板才改規格 |
-| | [`prototype`](skills/prototype/SKILL.md) | 👥 | 做可在瀏覽器操作的互動 prototype |
-| 送審前自查 | [`qa-pre-review`](skills/qa-pre-review/SKILL.md) | 👥 | 用 QA 的標準在獨立 context 完整預審 |
-| | [`spec-revise`](skills/spec-revise/SKILL.md) | 📝 | 全文掃矛盾；送審後收尾 |
-| 送審 | [`pr-suggest`](skills/pr-suggest/SKILL.md) | 👥 | 審 PR 時留行內修改建議 |
-| | [`pr-apply-suggestions`](skills/pr-apply-suggestions/SKILL.md) | 👥 | 收到建議後核對並套用 |
-| | [`to-notion`](skills/to-notion/SKILL.md) | 👥 | 定案的規格輸出成 Notion 展示頁 |
-| 上線後 | [`retro-mode`](skills/retro-mode/SKILL.md) | 📝 | 專案回顧 Keep / Problem / Try |
-| 每天・每週 | [`change-digest-mode`](skills/change-digest-mode/SKILL.md) | 📝 | 每天早上整理昨天的改動，產出各專案群組訊息 |
-| | [`daily-report-mode`](skills/daily-report-mode/SKILL.md) | 📝 | Daily 工作回報 |
-| | [`weekly-recap-mode`](skills/weekly-recap-mode/SKILL.md) | 📝 | 個人週報 |
-
-## Command（13）
-
-| 階段 | Command | 做什麼 |
+| 階段 | Skill | 子指令 |
 |---|---|---|
-| 準備 | [`sync`](commands/sync.md) | 規格庫更新到最新，草稿不會弄丟 |
-| 寫規格 | [`spec-search`](commands/spec-search.md) | 查某個功能邏輯寫在哪些規格 |
-| | [`draft-story`](commands/draft-story.md)、[`draft-flow`](commands/draft-flow.md) | 從草稿產出 User Story 或 Userflow |
-| | [`output-story`](commands/output-story.md)、[`output-flow`](commands/output-flow.md) | 從程式碼反推現況規格 |
-| 送審 | [`ship`](commands/ship.md) | 分組 commit、push、開 PR |
-| | [`pr`](commands/pr.md)、[`commit`](commands/commit.md)、[`auto-commit`](commands/auto-commit.md) | 只開 PR、只 commit（`ship` 內部也會用） |
-| 開票 | [`ticket`](commands/ticket.md) | 依規格拆前端 / 後端 User Story |
-| 上線後 | [`archive`](commands/archive.md) | 已上線的 feature 從 drafts 封存 |
-| | [`sync-code`](commands/sync-code.md) | 把程式碼的新行為補進現況規格 |
+| 0 準備 | [`pm-setup`](skills/pm-setup/SKILL.md) | `init` 專案背景、`tools` 工具安裝、`sync` 規格庫更新 |
+| 1 收素材 | [`pm-intake`](skills/pm-intake/SKILL.md) | `notion` Notion 規格與圖片、`meeting` 會議記錄、`material` 零散素材 |
+| 1 調研 | [`pm-discover`](skills/pm-discover/SKILL.md) | `cases` 解法案例、`pains` 痛點證據 |
+| 1 定方向 | [`pm-plan`](skills/pm-plan/SKILL.md) | `scope` 範圍與 drafts、`decide` 決策文件 |
+| 2 寫規格 | [`pm-spec`](skills/pm-spec/SKILL.md) | `write` spec.md、`story` / `flow` 從草稿產出、`reverse` 從程式碼反推、`search` 查現況 |
+| 3–5 審查 | [`pm-review`](skills/pm-review/SKILL.md) | `qa`、`readers`、`edge`、`impact`、`consistency`、`polish`、`preflight`、`all` |
+| 4 設計對齊 | [`pm-design`](skills/pm-design/SKILL.md) | `dr` 設計修改、`prototype` 互動原型 |
+| 6 送審 | [`pm-ship`](skills/pm-ship/SKILL.md) | 不帶＝commit 與開 PR、`suggest` / `apply` PR 建議、`wrap` 收尾、`notion` 展示頁 |
+| 7 開票 | [`pm-ticket`](skills/pm-ticket/SKILL.md) | `spec` 依規格拆 FE / BE、`bug`、`sprint-bug`、`task`、`optimization`、`story`、`tech`、`form` |
+| 8 上線後 | [`pm-launch`](skills/pm-launch/SKILL.md) | `release` 公告、`archive` 封存、`sync-code` 補現況規格、`retro` 回顧 |
+| 每天・每週 | [`pm-report`](skills/pm-report/SKILL.md) | `digest` 改動摘要、`daily`、`weekly` |
 
-Command 全部改寫自團隊共用的規格庫（👥）。
+## 共用檔案
 
-## Agent（2）
-
-| Agent | 做什麼 |
+| 檔案 | 內容 |
 |---|---|
-| [`discovery`](agents/discovery.md) | 調研段的路由：案例、痛點證據、綜合結論 |
-| [`delivery`](agents/delivery.md) | 交付段的路由：寫規格、挑問題、產 story、送審、封存 |
+| [`shared/floor.md`](shared/floor.md) | 所有 skill 共用的底線：每次執行先做什麼、用語、外部寫入、待確認格式 |
+| [`shared/writing.md`](shared/writing.md) | 中英文寫作格式與用語規則 |
+| [`shared/principles.md`](shared/principles.md)、[`shared/skill-contract.md`](shared/skill-contract.md) | 調研類 skill 的方法論與 skill 撰寫契約 |
 
-`kernel/` 是調研 skill 共用的原則與契約。
+每個 skill 執行前會讀 `~/.claude/pm-config.md`（範本見 repo 根目錄的 [`pm-config.example.md`](../pm-config.example.md)），公司專屬的路徑、ID、名詞都放在那裡，skill 本體不用改。
 
 ## 授權
 

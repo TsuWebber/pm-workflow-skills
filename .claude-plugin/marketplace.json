@@ -1,6 +1,6 @@
 {
   "name": "pm-workflow-skills",
-  "version": "2.0.0",
+  "version": "3.0.0",
   "description": "一位軟體 PM 實際工作的完整流程：從定方向、寫規格、審查、送審、開票、上線，到每天的進度同步（繁體中文）。",
   "owner": {
     "name": "TsuWebber",
@@ -9,7 +9,7 @@
   "plugins": [
     {
       "name": "pm-workflow",
-      "description": "24 個 skill、13 個 command、2 個 agent，涵蓋 PM 從需求到上線的完整工作流。",
+      "description": "11 個 skill，一個工作階段一個入口：準備、收素材、調研、定方向、寫規格、審查、設計對齊、送審、開票、上線後、例行回報。",
       "source": "./pm-workflow",
       "category": "product-management"
     }

@@ -1,6 +1,6 @@
 ---
 name: pm
-description: "軟體 PM 工作流（繁體中文）。涵蓋決策文件、release note、Jira 開票（Bug / Sprint Bug / Task / 簡道雲 / 需求票），以及任何文件的審查（review）、補強（harden / impact）、精簡與用語統一。寫規格（方向收斂、spec、AC）不在這裡，交給團隊的規格工具。Use when the user types /pm, or asks to 寫決策文件、寫 release note、開 Jira 票、檢查 / 審查文件、補邊界情境、盤點跨部門影響。"
+description: "軟體 PM 工作流（繁體中文）。涵蓋決策文件、release note、Jira 開票（Bug / Sprint Bug / Task / 簡道雲 / 需求票），以及任何文件的審查（review）、補強（harden / impact）、精簡與用語統一。寫規格（方向收斂、spec、AC）不在這裡，交給同一個 plugin 的規格 skill（spec-plan、spec-write 等）。Use when the user types /pm, or asks to 寫決策文件、寫 release note、開 Jira 票、檢查 / 審查文件、補邊界情境、盤點跨部門影響。"
 argument-hint: "<init|decide|release|ticket|review|harden|impact|distill|clarify> [對象：規格檔路徑 / Notion URL / 檔案 / 描述]"
 ---
 
@@ -52,9 +52,17 @@ Mode 由「這份產出給誰看」決定，不是由專案決定。
 | | `distill` | 壓縮冗長內容，不刪決策與規則 | `reference/distill.md` |
 | | `clarify` | 統一用語、消除模糊詞 | `reference/clarify.md` |
 
-### 寫規格不在本 skill
+### 寫規格交給規格 skill
 
-規格只有一個來源：團隊用 Git 管理的規格庫（spec repo）。方向收斂、寫 spec 與 AC、規格預審、依規格拆前後端票，都交給規格庫自己的工具。
+規格只有一個來源：團隊用 Git 管理的規格庫（spec repo）。寫規格相關的需求改用同一個 plugin 裡的規格 skill：
+
+| 需求 | 改用 |
+|---|---|
+| 方向收斂、要不要做、範圍到哪 | `spec-plan` |
+| 寫規格、寫 AC | `spec-write` |
+| 挑規格問題、送審前預審 | `spec-review`、`qa-pre-review` |
+| commit、開 PR | `ship` |
+| 依規格拆前端 / 後端票 | `/ticket` command（其他票型仍用本 skill 的 `ticket`） |
 
 本 skill 負責規格以外的事，並且可以直接審規格檔：`review`、`harden`、`impact`、`distill`、`clarify` 都能讀 `spec.md`。
 
@@ -62,13 +70,13 @@ Mode 由「這份產出給誰看」決定，不是由專案決定。
 
 - **沒帶指令（只打 `/pm`）**：不執行任何產出。讀 `.pm/PROJECT.md`（若有）與對話脈絡，判斷目前在哪個階段，列出建議的下一步 1–3 個指令，每個附一句理由。
 - **明確指令**：讀對應的 reference 檔並執行。
-- **自然語言描述**：對應到最接近的指令後執行，並在開頭用一句話說明用了哪個指令（例：「用 `impact` 盤點跨部門影響」）。要寫規格就請使用者改用規格庫的工具。無法判斷時問使用者，只問這一題。
+- **自然語言描述**：對應到最接近的指令後執行，並在開頭用一句話說明用了哪個指令（例：「用 `impact` 盤點跨部門影響」）。要寫規格就轉給對應的規格 skill。無法判斷時問使用者，只問這一題。
 - **指令不存在**：列出指令表，不自行發明新流程。
 
 ### 典型流程
 
 ```
-init →（decide）→【規格庫：寫規格】→ review / harden / impact →【規格庫：預審 → 送審】→ ticket → release
+init →（decide）→【spec-plan → spec-write】→ review / harden / impact →【spec-review / qa-pre-review → ship】→ ticket → release
 ```
 
 不需每步都走；依使用者當下進度挑。完成一個指令後，依此流程主動建議下一步（一句話，不主動執行）。

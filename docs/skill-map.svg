@@ -1,0 +1,87 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="680" height="770" viewBox="0 0 680 770" role="img" font-family="-apple-system, 'Segoe UI', 'Noto Sans TC', 'Microsoft JhengHei', 'PingFang TC', sans-serif">
+<title>pm-workflow 11 個 skill 的關聯圖</title>
+<desc>由上到下：pm-setup 準備，接 pm-intake 與 pm-discover，匯入 pm-plan，再到 pm-spec。pm-spec 交給 pm-review 與 pm-design，兩者發現問題都回到 pm-spec；pm-review 通過後到 pm-ship、pm-ticket、pm-launch。左側是所有 skill 共用的 shared 與 pm-config，右上是獨立的 pm-report。</desc>
+<defs>
+<marker id="ag" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M2 1L8 5L2 9" fill="none" stroke="#888780" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></marker>
+<marker id="at" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M2 1L8 5L2 9" fill="none" stroke="#1D9E75" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></marker>
+</defs>
+<rect x="0" y="0" width="680" height="770" rx="16" fill="#FFFFFF"/>
+
+<g font-size="14" text-anchor="middle" dominant-baseline="central">
+<rect x="30" y="40" width="90" height="658" rx="8" fill="#F1EFE8" stroke="#5F5E5A" stroke-width="0.5" stroke-dasharray="4 3"/>
+<text x="75" y="340" fill="#444441" font-weight="500">共用</text>
+<text x="75" y="362" fill="#5F5E5A" font-size="12">shared/</text>
+<text x="75" y="382" fill="#5F5E5A" font-size="12">pm-config</text>
+
+<rect x="548" y="40" width="112" height="56" rx="8" fill="#F1EFE8" stroke="#5F5E5A" stroke-width="0.5" stroke-dasharray="4 3"/>
+<text x="604" y="58" fill="#444441" font-weight="500">pm-report</text>
+<text x="604" y="78" fill="#5F5E5A" font-size="12">每天・每週</text>
+
+<rect x="250" y="40" width="180" height="56" rx="8" fill="#F1EFE8" stroke="#5F5E5A" stroke-width="0.5"/>
+<text x="340" y="58" fill="#444441" font-weight="500">pm-setup 準備</text>
+<text x="340" y="78" fill="#5F5E5A" font-size="12">init・tools・sync</text>
+
+<rect x="150" y="126" width="180" height="56" rx="8" fill="#EEEDFE" stroke="#534AB7" stroke-width="0.5"/>
+<text x="240" y="144" fill="#3C3489" font-weight="500">pm-intake 收素材</text>
+<text x="240" y="164" fill="#534AB7" font-size="12">notion・meeting</text>
+
+<rect x="350" y="126" width="180" height="56" rx="8" fill="#EEEDFE" stroke="#534AB7" stroke-width="0.5"/>
+<text x="440" y="144" fill="#3C3489" font-weight="500">pm-discover 調研</text>
+<text x="440" y="164" fill="#534AB7" font-size="12">選用：cases・pains</text>
+
+<rect x="250" y="212" width="180" height="56" rx="8" fill="#EEEDFE" stroke="#534AB7" stroke-width="0.5"/>
+<text x="340" y="230" fill="#3C3489" font-weight="500">pm-plan 定方向</text>
+<text x="340" y="250" fill="#534AB7" font-size="12">scope・decide</text>
+
+<rect x="250" y="298" width="180" height="56" rx="8" fill="#EEEDFE" stroke="#534AB7" stroke-width="0.5"/>
+<text x="340" y="316" fill="#3C3489" font-weight="500">pm-spec 寫規格</text>
+<text x="340" y="336" fill="#534AB7" font-size="12">write・story・search</text>
+
+<rect x="150" y="384" width="180" height="56" rx="8" fill="#E1F5EE" stroke="#0F6E56" stroke-width="0.5"/>
+<text x="240" y="402" fill="#085041" font-weight="500">pm-review 審查</text>
+<text x="240" y="422" fill="#0F6E56" font-size="12">qa・edge・preflight</text>
+
+<rect x="350" y="384" width="180" height="56" rx="8" fill="#E1F5EE" stroke="#0F6E56" stroke-width="0.5"/>
+<text x="440" y="402" fill="#085041" font-weight="500">pm-design 設計對齊</text>
+<text x="440" y="422" fill="#0F6E56" font-size="12">dr・prototype</text>
+
+<rect x="250" y="470" width="180" height="56" rx="8" fill="#EEEDFE" stroke="#534AB7" stroke-width="0.5"/>
+<text x="340" y="488" fill="#3C3489" font-weight="500">pm-ship 送審</text>
+<text x="340" y="508" fill="#534AB7" font-size="12">commit・PR・wrap</text>
+
+<rect x="250" y="556" width="180" height="56" rx="8" fill="#EEEDFE" stroke="#534AB7" stroke-width="0.5"/>
+<text x="340" y="574" fill="#3C3489" font-weight="500">pm-ticket 開票</text>
+<text x="340" y="594" fill="#534AB7" font-size="12">spec・bug・task</text>
+
+<rect x="250" y="642" width="180" height="56" rx="8" fill="#EEEDFE" stroke="#534AB7" stroke-width="0.5"/>
+<text x="340" y="660" fill="#3C3489" font-weight="500">pm-launch 上線後</text>
+<text x="340" y="680" fill="#534AB7" font-size="12">release・archive・retro</text>
+</g>
+
+<g stroke="#888780" stroke-width="1.5" fill="none" marker-end="url(#ag)">
+<line x1="300" y1="96" x2="262" y2="124"/>
+<line x1="380" y1="96" x2="418" y2="124"/>
+<line x1="262" y1="182" x2="300" y2="210"/>
+<line x1="418" y1="182" x2="380" y2="210"/>
+<line x1="340" y1="268" x2="340" y2="296"/>
+<line x1="300" y1="354" x2="262" y2="382"/>
+<line x1="380" y1="354" x2="418" y2="382"/>
+<line x1="262" y1="440" x2="300" y2="468"/>
+<line x1="340" y1="526" x2="340" y2="554"/>
+<line x1="340" y1="612" x2="340" y2="640"/>
+</g>
+
+<g stroke="#1D9E75" stroke-width="1" fill="none" stroke-dasharray="4 3" marker-end="url(#at)">
+<path d="M150 412 L136 412 L136 326 L248 326"/>
+<path d="M530 412 L544 412 L544 326 L432 326"/>
+</g>
+
+<g font-size="12" fill="#5F5E5A" dominant-baseline="central">
+<rect x="150" y="726" width="14" height="14" rx="3" fill="#EEEDFE" stroke="#534AB7" stroke-width="0.5"/>
+<text x="170" y="733">主線產出</text>
+<rect x="250" y="726" width="14" height="14" rx="3" fill="#E1F5EE" stroke="#0F6E56" stroke-width="0.5"/>
+<text x="270" y="733">檢查・對齊（虛線＝回頭改規格）</text>
+<rect x="476" y="726" width="14" height="14" rx="3" fill="#F1EFE8" stroke="#5F5E5A" stroke-width="0.5"/>
+<text x="496" y="733">支援・例行</text>
+</g>
+</svg>

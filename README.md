@@ -39,6 +39,12 @@
 
 ## 完整工作流程
 
+<p align="center"><img src="docs/skill-map.svg" alt="pm-workflow 11 個 skill 的關聯圖" width="680"></p>
+
+主線由上往下；`pm-review` 找到問題、`pm-design` 有接受的設計修改時，都回到 `pm-spec` 修改（綠色虛線）。所有 skill 執行前都會讀左側的 `shared/` 與 `pm-config`；`pm-report` 是例行回報，不屬於單一需求。
+
+各 skill 的子指令：
+
 ```
 需求進來
 │

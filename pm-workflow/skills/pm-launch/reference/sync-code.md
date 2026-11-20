@@ -3,10 +3,10 @@
 > 這條指令的方向是 **程式碼 → 規格**：讀 oms（Laravel 後端）與 frontend（nx 前端）
 > master 上的變更，把「規格還沒寫到的行為與測資」補進 `specs/docs/<模組>/stories/`。
 >
-> 跟 [`pm-setup sync`](sync.md) 不一樣：那條是從 Gitea 拉別人寫的規格，這條是從程式碼反推規格。
+> 跟 [`pm-setup sync`](../../pm-setup/reference/sync.md) 不一樣：那條是從 Gitea 拉別人寫的規格，這條是從程式碼反推規格。
 >
 > **這條指令不會自動 commit、不會 push、不會開 PR。** 寫完檔案就停，讓人先看過。
-> 要送出去用 [`pm-ship`](ship.md) 或 [`pm-ship（開 PR 步驟）`](pr.md)。
+> 要送出去用 [`pm-ship`](../../pm-ship/reference/ship.md) 或 [`pm-ship（開 PR 步驟）`](../../pm-ship/reference/pr.md)。
 
 ## 水位線（為什麼需要 commit hash）
 
@@ -41,7 +41,7 @@ git -C <repo> log --oneline <synced_to>..origin/master | wc -l
 
 ### 2. 切成 ticket 級的工作單位
 
-**不要依賴 commit message。** 只有少數 non-merge commit 帶得上 SD 編號，訊息也不保證可信。
+**不要依賴 commit message。** 只有少數 non-merge commit 帶得上 Jira 票號，訊息也不保證可信。
 做法是從 **merge commit 的分支名**反推 ticket：
 
 ```bash

@@ -1,5 +1,5 @@
 
-# decide：決策文件（原 Decision Doc Mode）
+# decide：決策文件
 
 ## Overview
 

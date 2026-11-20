@@ -1,4 +1,4 @@
-# Change Digest Mode
+# digest：每日改動摘要
 
 ## Overview
 

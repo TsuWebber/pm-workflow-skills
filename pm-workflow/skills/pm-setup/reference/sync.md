@@ -1,6 +1,6 @@
 # Sync — 更新到最新版本（drafts 友善 · Gitea）
 
-> 這是 [`pm-ship`](ship.md) 的**反方向**:ship 是把你的草稿**送出去**,sync 是把大家最新的規格**拉進來**。
+> 這是 [`pm-ship`](../../pm-ship/reference/ship.md) 的**反方向**:ship 是把你的草稿**送出去**,sync 是把大家最新的規格**拉進來**。
 > 目標平台 **Gitea**(`<GIT_HOST>/<ORG>/<SPEC_REPO>`),**不是 GitLab**,不要用 `glab`。
 > 這條指令**只拉、不推**:不會 push、不會開 PR、不會改遠端。純粹讓你的本地 repo 追上最新版。
 
@@ -26,7 +26,7 @@ pm-setup sync
 
 ### Phase 1: 前置檢查與抓取
 
-1. 確認在 git 儲存庫,且遠端是 Gitea(`git remote -v` 指向 `<GIT_HOST>`)。
+1. 確認在 git 儲存庫,且遠端是 Gitea(`git remote -v` 指向 `<GIT_HOST>`)。沒有遠端或不是 Gitea → 照共用底線「0.1 環境差異」處理,不要往下跑 fetch。
 2. `git fetch --prune origin` 抓取遠端最新狀態(這步只更新 git 的遠端資訊,還不會動你的檔案)。
 3. 記錄目前 `main` 的位置備用(算「更新了什麼」用):
    `BEFORE=$(git rev-parse main 2>/dev/null || echo "")`。
@@ -39,7 +39,7 @@ pm-setup sync
 ### Phase 2: 保護進行中的工作（WIP）
 
 - **有未 commit 的變更**時,先判斷這些變更落在哪:
-  - 若都在 `drafts/`(或使用者手寫區)且看起來是「一段完整的草稿進度」→ **建議先用 [`/ship --no-pr`](ship.md) 存成 commit** 再更新,較安全;徵得同意後委派。
+  - 若都在 `drafts/`(或使用者手寫區)且看起來是「一段完整的草稿進度」→ **建議先用 [`pm-ship --no-pr`](../../pm-ship/reference/ship.md) 存成 commit** 再更新,較安全;徵得同意後委派。
   - 使用者不想先 commit,或變更零散 → **自動暫存**:`git stash push -u -m "sync-autostash"`,並記住「稍後要還原」。
 - **沒有未 commit 的變更** → 跳過本階段。
 - ⚠️ 絕不用 `git reset --hard` / `git checkout -- .` 這類會直接丟棄使用者變更的指令。
@@ -121,7 +121,7 @@ git diff --stat $BEFORE..main                     # 動了哪些檔案
 
 ## 重要提醒
 
-- **只拉不推**:本指令不 push、不開 PR、不改遠端;要送出草稿走 [`pm-ship`](ship.md)。
+- **只拉不推**:本指令不 push、不開 PR、不改遠端;要送出草稿走 [`pm-ship`](../../pm-ship/reference/ship.md)。
 - **不丟資料**:一律先保護 WIP(commit 或 stash)再更新;禁用 `reset --hard` / 覆蓋式 checkout。
 - **不硬解衝突**:併入 main 或還原暫存遇衝突,列清楚交給使用者,別自行拍板。
 - 平台 Gitea,目標分支固定 `main`(此 repo 沒有 `develop`)。

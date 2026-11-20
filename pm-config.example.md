@@ -7,14 +7,14 @@
 ## 規格庫
 
 - 路徑：`<SPEC_REPO_PATH>`（例：`~/work/spec-repo`）
-- Git 平台：`<GIT_HOST>`（例：`git.example.com`，預設流程以 Gitea 為準）
+- Git 平台：`<GIT_HOST>`（例：`git.example.com`，預設流程以 Gitea 為準；本機沒有遠端就寫「無」）
 - 組織 / repo：`<ORG>` / `<SPEC_REPO>`
 - 預設分支：`main`
 
 ## Jira
 
 - 網域：`your-team.atlassian.net`
-- 專案代碼：`PROJ`
+- 專案代碼：`PROJ`（所有 skill 的 `<PROJECT_KEY>` 都讀這裡）
 - Team 欄位 ID：`<CUSTOM_FIELD_ID>`；可選的 team：`<TEAM_NAME>`、…
 - Sprint 欄位 ID：`<CUSTOM_FIELD_ID>`
 - Environment 欄位 ID：`<CUSTOM_FIELD_ID>`
@@ -25,6 +25,14 @@
 - 任務資料庫：`<NOTION_DB_ID>`（`pm-report daily`、`weekly` 用）
 - 週會筆記資料庫：`<NOTION_DB_ID>`
 - 規格展示頁的上層頁面：`<PAGE_ID>`（`pm-ship notion` 用）
+
+## 溝通工具
+
+- 群組同步訊息用：`<CHAT_TOOL>`（例：Slack、LINE、DingTalk；沒寫就輸出純文字）
+
+## AC 標籤（選填）
+
+預設九個：主線、分支、邊界、例外、權限、狀態、金額、通知、資料。團隊有自己的清單就寫在這裡。
 
 ## 群組與其他來源
 

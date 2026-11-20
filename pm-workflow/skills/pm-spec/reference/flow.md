@@ -5,7 +5,7 @@
 讀 `drafts/` 裡**指定的規格檔**,把規格描述的操作過程整理成以使用者目標為維度的 Userflow,
 輸出成同 feature 資料夾裡的一份文件。讓 PM 寫完 spec 後,能立刻拿到一份 RD 照著串畫面、QA 照著跑步驟的流程清單。
 
-**規範一律依 [specs/docs/USERFLOW-WRITING-GUIDELINES.md](../../specs/docs/USERFLOW-WRITING-GUIDELINES.md)**,本指令不重複規則內文。
+**規範一律依 specs/docs/USERFLOW-WRITING-GUIDELINES.md（`<規格庫>/specs/docs/USERFLOW-WRITING-GUIDELINES.md`）**,本指令不重複規則內文。
 
 ## 使用方式
 
@@ -32,7 +32,7 @@ pm-spec flow [draft_path] [output_path]
 
 ### 2. 讀來源並切出使用者目標
 
-- 讀 `[draft_path]` 全文,以及同 feature 資料夾的 [decisions.md](../../drafts/_meta/TEMPLATE-decisions.md) 決策紀錄。
+- 讀 `[draft_path]` 全文,以及同 feature 資料夾的 decisions.md（`<規格庫>/drafts/_meta/TEMPLATE-decisions.md`） 決策紀錄。
 - 依規範 §2 把功能切成數個 sea level 目標,每個目標一條 flow。
 - 標題一律「角色 + 動詞 + 受詞」;切不出結束狀態的候選不成立,合併或捨棄。
 
@@ -91,7 +91,7 @@ source_spec_version: "<來源 spec_version>"
 
 # <功能顯示名> — Userflows
 
-> 來源:[spec.md](./spec.md) v<spec_version>　規範:[USERFLOW-WRITING-GUIDELINES.md](../../../specs/docs/USERFLOW-WRITING-GUIDELINES.md)
+> 來源:[spec.md](./spec.md) v<spec_version>　規範:USERFLOW-WRITING-GUIDELINES.md（`<規格庫>/specs/docs/USERFLOW-WRITING-GUIDELINES.md`）
 
 ## UF-1: <角色 + 動詞 + 受詞>
 

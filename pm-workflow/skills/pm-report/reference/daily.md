@@ -1,4 +1,4 @@
-# Daily Report Mode
+# daily：Daily 回報
 
 ## Overview
 

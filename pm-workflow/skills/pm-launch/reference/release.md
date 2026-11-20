@@ -1,5 +1,5 @@
 
-# release：Release Note（原 Release Note Mode）
+# release：Release Note
 
 ## Overview
 
@@ -48,6 +48,10 @@
 若使用者提供 Notion PRD URL：
 - 使用 `notion-fetch` 讀取頁面內容
 - 提取：功能目標、使用對象、功能位置、操作說明、改版前後差異
+
+若使用者提供規格庫路徑（例：`drafts/2612/partial-refund`）：
+- 讀該 feature 的 `spec.md`；還在 `drafts/` 代表尚未上線，先問使用者是否確定要寫
+- 規格裡的 `🟡 待確認`、`TBD`、「視情況」等未定案內容一律不寫進 release note，列給使用者確認
 
 若使用者提供純文字描述：
 - 直接根據描述整理，缺少欄位做最小合理假設並標示
@@ -279,7 +283,7 @@
 
 ## Behavior When Information Is Missing
 
-- 若 PRD 有功能目標但無詳細步驟，根據功能邏輯做合理推測，並在草稿末標示「⚠️ 以下步驟為草稿推測，請確認後調整」
+- 若 PRD 有功能目標但無詳細步驟，不自己推測步驟；在對應位置標 `🟡 待確認：操作步驟`，並列出要問誰
 - 若使用對象 PRD 未明確說明，根據功能性質判斷，並標示假設
 - 若改版但無舊版截圖，columns 欄位改為文字描述舊版樣子
 - 若 PRD 有 🟡 待確認 項目，不寫進 release note，等確認後再補

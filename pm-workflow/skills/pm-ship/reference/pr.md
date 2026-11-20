@@ -1,7 +1,7 @@
 # 建立 Pull Request 指令（drafts 專用 · Gitea）
 
 > 本指令**只服務 `drafts/`**(編寫中、尚未上線的規格)。目標平台是 **Gitea**
-> (`<GIT_HOST>/<ORG>/spec repo`),**不是 GitLab**,不要用 `glab`。
+> (`<GIT_HOST>/<ORG>/<SPEC_REPO>`),**不是 GitLab**,不要用 `glab`。
 > `specs/`、`frontend/`、`routes/`、`userflows/`、`archive/` 的變更不歸這條指令管——那些請走各自的源頭 repo 或流程。
 
 ## 目的
@@ -45,8 +45,8 @@ PR 描述聚焦「這次動了哪些草稿、屬於哪個 sprint、變更重點�
 依環境可用工具擇一(由上而下優先):
 
 1. **`tea` CLI(Gitea 官方,若已安裝)**
-   - 查既有 PR:`tea pr list --repo <ORG>/spec repo --state open`
-   - 開新 PR:`tea pr create --repo <ORG>/spec repo --base main --head <branch> --title "<標題>" --description "<內文>"`
+   - 查既有 PR:`tea pr list --repo <ORG>/<SPEC_REPO> --state open`
+   - 開新 PR:`tea pr create --repo <ORG>/<SPEC_REPO> --base main --head <branch> --title "<標題>" --description "<內文>"`
 2. **Gitea REST API + `GITEA_TOKEN`(無 `tea`,但環境有 token 時)**:
    ```bash
    curl -s -X POST \
@@ -56,7 +56,7 @@ PR 描述聚焦「這次動了哪些草稿、屬於哪個 sprint、變更重點�
      -d '{"base":"main","head":"<branch>","title":"<標題>","body":"<內文>"}'
    ```
 3. **Gitea REST API + git 憑證(無 token 時的預設路徑)** — 若 `git push` 不用輸密碼,代表憑證已存在
-   git credential store（macOS 為 Keychain）,直接取出同一組憑證打 API,**不必裝 `tea`、不必設 token**:
+   git credential store（macOS 為 Keychain）,**先徵得使用者同意**再取出同一組憑證打 API(不必裝 `tea`、不必設 token);不同意就請使用者自己在網頁開 PR:
    ```bash
    CRED=$(printf 'protocol=https\nhost=<GIT_HOST>\n\n' | git credential fill 2>/dev/null)
    U=$(printf '%s\n' "$CRED" | sed -n 's/^username=//p')
@@ -66,7 +66,7 @@ PR 描述聚焦「這次動了哪些草稿、屬於哪個 sprint、變更重點�
    - **安全**:用 `git credential fill` 取值放進變數、直接餵給 `curl -u`,**過程中絕不 echo / 印出密碼**。
    - 用 `jq -n --arg ... --rawfile body <file>` 組 JSON payload,避免中文內文的跳脫問題。
 4. **以上都不行 → 輸出 compare URL 讓使用者手動開**:
-   `https://<GIT_HOST>/<ORG>/spec repo/compare/main...<branch>`
+   `https://<GIT_HOST>/<ORG>/<SPEC_REPO>/compare/main...<branch>`
    並附上下方範本產生好的標題與內文,讓使用者貼上即可。
 
 > **建 / 更新前先查重**:任一 API 路徑(2 或 3)POST 前,先 GET `.../pulls?state=open&head=<branch>`

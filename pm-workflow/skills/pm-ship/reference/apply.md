@@ -5,7 +5,7 @@
 needle 在網頁上一次只能套用一則，每則各一個 commit。這個 skill 在本地一次套用多則，
 套用規則跟 needle 相同：**用建議區塊的內容取代留言掛的那一行**。
 
-這個 skill 只改本地檔案。commit 與 push 交給 [`pm-ship`](../../commands/ship.md)。
+這個 skill 只改本地檔案。commit 與 push 交給 [`pm-ship`](ship.md)。
 
 ---
 
@@ -14,7 +14,7 @@ needle 在網頁上一次只能套用一則，每則各一個 commit。這個 sk
 ### 1. 取得 PR 與憑證
 
 - PR 編號由使用者提供；沒給就列出開著的 PR 請使用者選。
-- 憑證沿用 [`pm-ship（開 PR 步驟）`](../../commands/pr.md) 第 5 步的路徑 2 或 3。
+- 憑證沿用 [`pm-ship（開 PR 步驟）`](pr.md) 第 5 步的路徑 2 或 3。
   以下 `$AUTH` 是 curl 的認證參數，`$API` 是
   `https://<GIT_HOST>/api/v1/repos/<ORG>/<SPEC_REPO>`。**絕不印出密碼或 token**。
 - `GET $API/pulls/<n>`，記下 `head.ref`。

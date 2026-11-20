@@ -50,7 +50,7 @@ pm-ship [description] [--no-pr] [--ticket [parent_key]]
 ### Phase 3: 分支
 
 - 當前不是 `main` → 沿用當前分支。
-- 當前是 `main` → 開新分支:`git checkout -b drafts/<sprint>-<slug> main`
+- 當前是 `main` → 有遠端時開新分支(沒有遠端時開分支是選用,先問使用者):`git checkout -b drafts/<sprint>-<slug> main`
   (slug 取草稿主題,例:`drafts/2606-coupon-stacking-v2`)。
 
 ### Phase 4: 智慧分組 commit（依 `pm-ship（commit 步驟）`）
@@ -76,7 +76,7 @@ git push -u origin <branch-name>
 
 ### Phase 7: 建立變更票（只在有 `--ticket` 時）
 
-- 委派 [`pm-ticket spec`](ticket.md):對這次每個異動草稿,傳入 `[parent_key]`(若有)與該 draft 路徑,
+- 委派 [`pm-ticket spec`](../../pm-ticket/reference/spec.md):對這次每個異動草稿,傳入 `[parent_key]`(若有)與該 draft 路徑,
   由 `pm-ticket spec` 讀草稿內容拆成 FE / BE User Story 並建票。
 - 不重寫拆解邏輯——一切以 `pm-ticket spec` 為準;ship 只負責把「哪些草稿」與 parent 傳過去。
 - 建好後把 ticket key 補進 PR 描述頂端(若 Phase 6 已建 PR),讓 PR ↔ ticket 互通。
@@ -100,7 +100,7 @@ git push -u origin <branch-name>
 
 - 繁體中文為主,技術名詞(欄位名、狀態 enum)保留英文。
 - Commit / PR 只描述**規格差異**,不塞 migration、部署命令、程式碼實作——那些不屬於 spec repo。
-- 草稿還有 `TBD` / 未定案 → 誠實寫進 PR 的「待釐清」,不要假裝已定案。
+- 草稿還有 `🟡 待確認` / `TBD` / 未定案 → 誠實寫進 PR 的「待確認」,不要假裝已定案。
 
 ## 重要提醒
 

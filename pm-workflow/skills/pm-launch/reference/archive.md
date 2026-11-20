@@ -59,7 +59,7 @@ pm-launch archive --restore <sprint>/<feature>
 
 ```yaml
 released_sprint: <上線的 sprint,例:2610>
-merged_into: <相對連結指向併入的現況規格,例 [coupon](../../../specs/docs/05-product-and-marketing/coupon/_index.md);或 N/A(...)>
+merged_into: <相對連結指向併入的現況規格,例 coupon（`<規格庫>/specs/docs/05-product-and-marketing/coupon/_index.md`）;或 N/A(...)>
 ```
 
 ### Phase 4: 修引用(搬移前必做)

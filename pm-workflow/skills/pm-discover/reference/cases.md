@@ -13,8 +13,8 @@
 **這個 skill 不寫 `spec.md`**。它產出的是 `drafts/<sprint>/<feature>/cases/` 底下的調研材料
 與兩個收斂判斷，spec 內文歸 `pm-spec write`。
 
-活範例：[drafts/2606/product-master/cases/](../../../drafts/2606/product-master/cases/)
-（8 個 CASE + FINDINGS）。共用原則見 [`../../shared/principles.md`](../../`../../shared/principles.md`)。
+活範例：drafts/2606/product-master/cases/（`<規格庫>/drafts/2606/product-master/cases/`）
+（8 個 CASE + FINDINGS）。共用原則見 [`../../../shared/principles.md`](../../../shared/principles.md)。
 
 預設語言：繁體中文（技術名詞保留英文）。
 
@@ -38,7 +38,7 @@
 
 ## Step 0：開始掃之前先確認（不滿足先別掃）
 
-這一段與落地段的寫法見 [`../../shared/skill-contract.md`](../../`../../shared/skill-contract.md`)。
+這一段與落地段的寫法見 [`../../../shared/skill-contract.md`](../../../shared/skill-contract.md)。
 
 **接手的東西 = 一個已存在的 feature 資料夾**（`drafts/<sprint>/<feature>/`）
 ＋**一句話的痛**。痛通常在 `decisions.md` 的問題定義或 `spec.md` §1，找不到就直接問 PM。
@@ -104,7 +104,7 @@
 
 ### 截圖與 `shot:` 欄
 
-圖片政策見 [`../../shared/principles.md`](../../`../../shared/principles.md`)：**圖片不進 repo**。
+圖片政策見 [`../../../shared/principles.md`](../../../shared/principles.md)：**圖片不進 repo**。
 所以 `shot:` 只有三種合法值——Drive 連結、`截不到：<原因>`、
 或 `待上傳：<本機位置>` 加一筆 `actions.md` 待辦（要一次搬乾淨用 `pm-intake notion（圖片搬到 Drive）`）。
 
@@ -270,7 +270,7 @@ Step 5 收斂「我們照誰做」；這一節收斂「**我們哪裡可以做�
 ### 量級怎麼估才不算亂猜
 
 **先扣掉我們已經有的。** 估之前先確認這個缺口要補的行為，是不是有一段
-**[specs/](../../../specs/) 裡早就有別的模組在做**。沒扣掉會把已經有的東西算成要付的成本，
+**specs/（`<規格庫>/specs/`） 裡早就有別的模組在做**。沒扣掉會把已經有的東西算成要付的成本，
 量級整個估大——而量級估大的直接後果是這個缺口被判「不做」。
 
 這一步不估時，但**可以從調研本身推量級**，依據比拍腦袋硬：
@@ -312,7 +312,7 @@ spec 內文歸 `pm-spec write`——直接寫進 spec 會跳過 PM 拍板那一�
       真的沒有值得補的缺口 → 寫「這一版只求追平」，**不得留空**。
       判「不做」的缺口已帶理由，準備寫進 `spec.md` §2 Out。
 - [ ] 正文沒有欄位名（`lens`、`evidence` 只住 frontmatter，見
-      [`../../shared/principles.md`](../../`../../shared/principles.md`)）。
+      [`../../../shared/principles.md`](../../../shared/principles.md)）。
 
 **提醒，不擋路**（沒做到會提一句，但可以往下）
 
@@ -345,7 +345,7 @@ spec 內文歸 `pm-spec write`——直接寫進 spec 會跳過 PM 拍板那一�
 - 欄位名只住 frontmatter，正文寫白話。
 - 跨檔引用一律用相對 markdown 連結指到具體檔案（含 `.md`）。從
   `drafts/<sprint>/<feature>/cases/` 引用現況規格要退四層，例
-  `[coupon](../../../../specs/docs/05-product-and-marketing/coupon/_index.md)`；
+  `[coupon](../../../specs/docs/05-product-and-marketing/coupon/_index.md)`；
   對話中回報時用 workspace 根相對路徑即可。不要用 `[[...]]` wiki 連結。
 - **圖片不進 repo**：一律上 Google Drive 只留連結。
 - 未定案的不臆測 → 進 `actions.md`；「為什麼」進 `decisions.md`。

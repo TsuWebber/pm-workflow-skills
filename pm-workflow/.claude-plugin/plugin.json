@@ -1,6 +1,6 @@
 {
   "name": "pm-workflow",
-  "version": "3.0.0",
+  "version": "3.1.0",
   "description": "軟體 PM 的完整工作流（繁體中文）：調研與方向收斂、以 Git 管理的規格撰寫與審查、送審與開票、決策文件、release note、跨部門影響盤點、每日與每週進度同步。",
   "author": {
     "name": "TsuWebber",

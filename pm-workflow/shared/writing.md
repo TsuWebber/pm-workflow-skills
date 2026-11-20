@@ -89,7 +89,7 @@ Structural names include: table column headers, fixed section names a template m
 
 For a structural name there are only two honest options: do the **whole** migration (the guideline that defines it + every file that carries it + the tools that generate it + any doc that describes the format), or leave it and say why. Rewording only the prose uses while the identifier stays is also legitimate and often the right call — just make it a deliberate, reported split, never a silent one.
 
-本 repo 的實例：`判準` → `判斷依據` 是照第一條做的整套遷移 —— [USERFLOW-WRITING-GUIDELINES.md](../../../specs/docs/USERFLOW-WRITING-GUIDELINES.md)（欄位定義 + 範例表）、11 份 userflow 的表頭、[CLAUDE.md](../../../CLAUDE.md) 的格式描述、產生這張表的 `pm-spec flow` 與 `pm-spec reverse`, 共 32 處 / 15 檔一次改完。漏掉任何一邊, 下次產出的表頭就會跟既有檔案對不上。
+本 repo 的實例：`判準` → `判斷依據` 是照第一條做的整套遷移 —— USERFLOW-WRITING-GUIDELINES.md（`<規格庫>/specs/docs/USERFLOW-WRITING-GUIDELINES.md`）（欄位定義 + 範例表）、11 份 userflow 的表頭、CLAUDE.md（`<規格庫>/CLAUDE.md`） 的格式描述、產生這張表的 `pm-spec flow` 與 `pm-spec reverse`, 共 32 處 / 15 檔一次改完。漏掉任何一邊, 下次產出的表頭就會跟既有檔案對不上。
 
 Before any rename, check for cross-references: `grep` the shorthand and the full term across the whole repo, not just the file you are editing.
 

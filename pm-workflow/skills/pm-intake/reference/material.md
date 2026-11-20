@@ -3,7 +3,7 @@
 ## 定位
 
 `drafts/planning/` 是 PM **正在規劃、還沒排進 sprint 開發**的 delivery 素材收集地,依
-[README.md](../../../drafts/planning/README.md) 分成 to-c / to-process / to-r / platform 四條產品線。
+README.md（`<規格庫>/drafts/planning/README.md`） 分成 to-c / to-process / to-r / platform 四條產品線。
 這個 skill 是它的**收件與分類站**:PM 丟一份素材進來,判斷歸哪條產品線、哪個 feature 資料夾,
 原樣落地,**不改寫內容、不套固定模板**。
 
@@ -34,7 +34,7 @@
 - 還沒明講要放哪條產品線(to-c / to-process / to-r / platform)、哪個 feature 資料夾
 
 不適用(改用別的):
-- 已經確定要排進 sprint 開發 → 依 [drafts/README.md](../../../drafts/README.md) 正常流程在
+- 已經確定要排進 sprint 開發 → 依 drafts/README.md（`<規格庫>/drafts/README.md`） 正常流程在
   `drafts/<sprint>/<feature>/` 建四件套(可以把 `planning/` 裡累積的素材當起點搬過去)
 - 素材是**已經寫好的 Notion 規格**且要排進 sprint → `pm-intake notion`
 - 只有一個想法,還沒有任何素材 → `pm-plan scope`
@@ -57,14 +57,14 @@
 - 一次貼了好幾份不同 feature 的素材 → 逐份判斷歸類,不要合併成一份丟進同一個資料夾。
 - 內容裡有圖片 → 提醒 PM 這個 repo 圖片不進版控,稍後要走 `pm-intake notion（圖片搬到 Drive）` 換成 Drive 連結。
 
-**不放行時退回**:已經要排 sprint → 引導去 [drafts/README.md](../../../drafts/README.md) 的正常流程
+**不放行時退回**:已經要排 sprint → 引導去 drafts/README.md（`<規格庫>/drafts/README.md`） 的正常流程
 (或 `pm-intake notion`,若來源是 Notion);只有想法沒素材 → `pm-plan scope`。
 
 ---
 
 ## Step 1:判斷產品線
 
-依 [drafts/planning/README.md](../../../drafts/planning/README.md) 裡四條產品線的定義判斷這份素材屬於
+依 drafts/planning/README.md（`<規格庫>/drafts/planning/README.md`） 裡四條產品線的定義判斷這份素材屬於
 `to-c` / `to-process` / `to-r` / `platform` 的哪一條。**這份 README 是唯一的分類依據,不在這支 skill
 裡另外複製一份定義**——README 改了,判斷邏輯自動跟著改。
 
@@ -113,7 +113,7 @@
 
 ## 收尾與銜接
 
-- 這份素材已經夠完整、PM 確定要排進 sprint 開發 → 依 [drafts/README.md](../../../drafts/README.md)
+- 這份素材已經夠完整、PM 確定要排進 sprint 開發 → 依 drafts/README.md（`<規格庫>/drafts/README.md`）
   在對應 sprint 下建正式 feature 資料夾,可以把 `planning/` 裡的素材當起點搬過去(不會自動同步)。
 - 素材其實是要搬**已寫好的 Notion 規格**且要排 sprint → `pm-intake notion`。
 - PM 想先探索方向、還沒有素材可歸類 → `pm-plan scope`。
@@ -126,6 +126,6 @@
 
 - 一律繁體中文,技術名詞保留英文。
 - 分類**不臆測**:看不出屬於哪條產品線、哪個 feature,一律問 PM,不自行拍板。
-- 產品線的定義只住在 [drafts/planning/README.md](../../../drafts/planning/README.md),這支 skill 只引用、不複製。
+- 產品線的定義只住在 drafts/planning/README.md（`<規格庫>/drafts/planning/README.md`）,這支 skill 只引用、不複製。
 - 跨檔引用一律用相對 markdown 連結,指到具體檔案(含 `.md`),不用 `[[...]]` wiki 連結。
-- 圖片政策沿用 [CLAUDE.md](../../../CLAUDE.md):不進 repo,上傳 Google Drive 後回填連結。
+- 圖片政策沿用 CLAUDE.md（`<規格庫>/CLAUDE.md`）:不進 repo,上傳 Google Drive 後回填連結。

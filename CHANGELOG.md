@@ -1,5 +1,15 @@
 # Changelog
 
+## 3.1.0（2026-11-20）
+
+- 依實際叫用測試修正：所有落檔先等 GO（`pm-review qa` 原本會直接寫檔）
+- 共用底線新增「環境差異」：沒有 remote 或不是 Gitea、規格庫檔案不存在、章節與模組以規格庫實際為準、代碼與平台讀 pm-config、取用憑證前先徵得同意、嚴重度與待確認寫法統一
+- 修正斷掉的連結與相對路徑（shared/、ship、pr、ticket、reverse-story、規格庫模板）
+- `pm-review readers` 的規則同時支援 Notion A-x 與規格庫 STORY / AC 格式；`consistency` 會對照現況規格
+- `pm-ticket`：子指令與票型對照補齊（含 tech、form），bug / sprint-bug 先問清楚，專案代碼讀 pm-config，`spec` 在沒有 Jira 連線時仍產出草稿
+- `pm-launch release` 可以直接吃規格庫路徑；`pm-spec write` 的 AC 編號與標籤寫清楚
+- README 新增「適合誰用」與「和 phuryn/pm-skills 的差別」
+
 ## 3.0.0（2026-11-20）
 
 - 依工作階段重組成 11 個 skill：pm-setup、pm-intake、pm-discover、pm-plan、pm-spec、pm-review、pm-design、pm-ship、pm-ticket、pm-launch、pm-report

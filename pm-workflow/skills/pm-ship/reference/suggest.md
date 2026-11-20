@@ -52,7 +52,7 @@ needle 套用時做的事是：取留言掛的那一行（新版行號 N），�
 ### 1. 取得 PR 與憑證
 
 - PR 編號由使用者提供；沒給就列出開著的 PR 請使用者選。
-- 憑證沿用 [`pm-ship（開 PR 步驟）`](../../commands/pr.md) 第 5 步的路徑 2 或 3（`GITEA_TOKEN`，或從 `git credential fill` 取帳密）。
+- 憑證沿用 [`pm-ship（開 PR 步驟）`](pr.md) 第 5 步的路徑 2 或 3（`GITEA_TOKEN`，或從 `git credential fill` 取帳密）。
   以下用 `$AUTH` 代表 curl 的認證參數（`-H "Authorization: token $GITEA_TOKEN"` 或 `-u "$U:$P"`），
   `$API` 代表 `https://<GIT_HOST>/api/v1/repos/<ORG>/<SPEC_REPO>`。
   **絕不印出密碼或 token**。

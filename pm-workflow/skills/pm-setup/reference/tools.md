@@ -2,7 +2,7 @@
 
 ## 定位
 
-[ONBOARDING.md](../../../ONBOARDING.md) 是給 PM 讀的入門文，主推「Claude Desktop、不碰終端機」那條路。
+ONBOARDING.md（`<規格庫>/ONBOARDING.md`） 是給 PM 讀的入門文，主推「Claude Desktop、不碰終端機」那條路。
 **這個 skill 是它的另一半**：PM 只要說一句「幫我把環境裝好」，**由你（助手）代跑所有安裝與授權**——
 PM 依然不用碰終端機、不用背指令。
 
@@ -24,7 +24,7 @@ PM 依然不用碰終端機、不用背指令。
 - 想確認「我的環境到底哪裡沒設好」
 
 不適用：
-- 只是要 clone 倉庫 → 照 [ONBOARDING.md](../../../ONBOARDING.md) Step 3
+- 只是要 clone 倉庫 → 照 ONBOARDING.md（`<規格庫>/ONBOARDING.md`） Step 3
 - 要接 JIRA / Notion → 那是 MCP，打 `/mcp` 授權，見 ONBOARDING〈連接外部服務〉
 
 ---

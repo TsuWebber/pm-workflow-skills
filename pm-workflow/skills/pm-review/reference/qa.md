@@ -115,7 +115,7 @@
 
 ## 步驟四：落地到 drafts（spec repo 版關鍵）
 
-報告顯示完後，**不要只停在對話**。要把結果沉澱進該 feature 資料夾：
+報告顯示完後，**先列出要寫進哪些檔、寫什麼，等使用者說 GO 才寫**。GO 之後把結果沉澱進該 feature 資料夾：
 
 1. **待補項目寫進 `actions.md`** —— 把「建議優先補齊」那幾點，用 checkbox 追蹤：
    ```markdown
@@ -133,8 +133,7 @@
 
 3. **不改 `spec.md` 本身** —— review 只指出問題，實際改規格是 `pm-spec write` 的事。
 
-> 這些檔案已存在（走 `drafts/_meta/TEMPLATE-*` 建立）。若某檔不存在，提示使用者該 feature
-> 還沒照 `drafts/README.md` 建齊，先補建再落地。
+> `actions.md`、`changelog.md` 不存在時，依共用底線「規格庫檔案不存在時」的規則處理。
 
 ---
 

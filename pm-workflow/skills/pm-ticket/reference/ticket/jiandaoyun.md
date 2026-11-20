@@ -16,7 +16,7 @@
 
 呼叫 `searchJiraIssuesUsingJql`：
 ```
-project = PROJ AND sprint in openSprints()
+project = <PROJECT_KEY> AND sprint in openSprints()
 ```
 取得 Sprint ID（`<CUSTOM_FIELD_ID>` 的整數值）。
 
@@ -29,7 +29,7 @@ project = PROJ AND sprint in openSprints()
 呼叫 `createJiraIssue`：
 ```
 cloudId:       {站台 GUID，見 SKILL.md 共用常數}
-projectKey:    SD
+projectKey:    <PROJECT_KEY>
 issueTypeName: Bug 或 Task
 summary:       [模組] 描述（繁體中文，50字以內）
 contentFormat: markdown
@@ -72,7 +72,7 @@ additional_fields:
 呼叫 `createJiraIssue`：
 ```
 cloudId:       {站台 GUID，見 SKILL.md 共用常數}
-projectKey:    SD
+projectKey:    <PROJECT_KEY>
 issueTypeName: Story
 summary:       [模組] 描述（繁體中文，50字以內）
 contentFormat: adf

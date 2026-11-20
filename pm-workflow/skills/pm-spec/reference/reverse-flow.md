@@ -2,7 +2,7 @@
 
 你要從**實作反推現況**,為指定功能產出 Userflow——使用者實際走得完的路徑,不是規劃中的路徑。
 
-**規範一律依 [specs/docs/USERFLOW-WRITING-GUIDELINES.md](../../specs/docs/USERFLOW-WRITING-GUIDELINES.md)**,本指令不重複規則內文。
+**規範一律依 specs/docs/USERFLOW-WRITING-GUIDELINES.md（`<規格庫>/specs/docs/USERFLOW-WRITING-GUIDELINES.md`）**,本指令不重複規則內文。
 
 ## 輸入
 

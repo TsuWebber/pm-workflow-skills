@@ -19,7 +19,7 @@
   - `Low` → 今天 +14 個工作天
   - `Lowest` → 今天 +30 個工作天
 - **是否有截圖或錯誤訊息**
-- **Sprint**：每張票都必須帶入當前 Sprint ID（必填）
+- **Sprint**：依 `types.md` 的全局規則決定要不要帶當前 Sprint
 - **Team**（必填）：這張票要算在哪個 team 名下？不可預設任何 team
 
 ---
@@ -55,13 +55,13 @@ Priority 判斷：
 
 ---
 
-## Step 3：取得當前 Sprint
+## Step 3：取得當前 Sprint（依 `types.md` 全局規則需要帶 Sprint 時才做）
 
 ⚠️ **每張票都必須重新執行此查詢，不可沿用同 session 中上一張票的結果。**
 
 呼叫 `searchJiraIssuesUsingJql` 取得 Sprint ID（整數）：
 ```
-project = PROJ AND sprint in openSprints()
+project = <PROJECT_KEY> AND sprint in openSprints()
 ```
 取第一筆的 Sprint ID，填入 `<CUSTOM_FIELD_ID>`。
 
@@ -72,7 +72,7 @@ project = PROJ AND sprint in openSprints()
 呼叫 `createJiraIssue`：
 ```
 cloudId:       {站台 GUID，見 SKILL.md 共用常數}
-projectKey:    SD
+projectKey:    <PROJECT_KEY>
 issueTypeName: Bug
 summary:       [模組] 描述
 contentFormat: adf

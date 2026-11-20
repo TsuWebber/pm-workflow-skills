@@ -12,6 +12,31 @@
 /pm-ticket spec         依規格拆前端 / 後端票
 ```
 
+## 適合誰用
+
+如果你符合下面任何一項，這套 skill 應該幫得上忙：
+
+- **想捨棄 Notion，讓規格真正即時同步。** 規格寫在 Git 管理的規格庫，用草稿、PR、審查迭代；RD、QA、設計看的永遠是同一份最新版本，不會有「Notion 改了、票沒改」的落差。Notion 只在需要對外展示時單向輸出。
+- **團隊用 Jira 開票。** 依規格拆前端 / 後端 Story、Bug、Sprint Bug、Task、優化票都有固定格式；開票前先列清單，確認後才建。
+- **需要繁體中文、貼近台灣軟體團隊的工作方式。** 全部用繁體中文產出，用語與流程照台灣常見的分工：PM 寫規格、RD 實作、QA 驗收、設計師出稿；Sprint 開發、`ALPHA` / `BETA` / `PRODUCTION` 三個環境；release note 寫給業務、營運、客服看。
+
+比較不適合的情況：規格主要寫在 Notion 或 Confluence 且不打算改、不用 Jira、或需要英文產出。
+
+## 和 phuryn/pm-skills 的差別
+
+[phuryn/pm-skills](https://github.com/phuryn/pm-skills) 是很完整的 PM skill 集，這個 repo 的結構也參考了它。兩者定位不同，可以一起用：
+
+| | phuryn/pm-skills | pm-workflow-skills（本 repo） |
+|---|---|---|
+| 定位 | PM 方法論工具箱：探索、策略、市場研究、GTM、成長、數據分析 | 一位 PM 每天實際在跑的執行流程：從規格到上線 |
+| 規模 | 9 個 plugin、72 個 skill、42 個 command | 1 個 plugin、11 個 skill，子指令按階段收斂 |
+| 規格放哪 | 不限定，產出文件為主 | Git 管理的規格庫，草稿、PR、審查迭代 |
+| 開票 | 不綁定工具 | Jira：依規格拆 FE / BE、Bug、Sprint Bug、Task 等固定格式 |
+| 語言 | 英文 | 繁體中文 |
+| 來源 | 以 PM 框架與最佳實務整理 | 從實際工作邊用邊改，附真實使用次數 |
+
+簡單說：要做市場研究、定策略、規劃 GTM，用 phuryn/pm-skills；要把需求寫成規格、審查、送審、開票、上線，用這個 repo。
+
 ## 完整工作流程
 
 ```

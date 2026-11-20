@@ -11,8 +11,8 @@
 - **需求描述**（必填）
 - **Environment**：`Dev` / `Alpha` / `Beta` / `Production`（描述中有提則自動帶入；不確定則問使用者）
 - **Due date**（選填，未提供預設今天 +7 天）
-- **Sprint**：預設填入當前 Sprint（呼叫 `searchJiraIssuesUsingJql` 以 `project = PROJ AND sprint in openSprints()` 取得，field: `<CUSTOM_FIELD_ID>`）
-- **Team**：預設 `<TEAM_NAME>`（有特別指定才改）
+- **Sprint**：依 `types.md` 的全局規則決定要不要帶當前 Sprint（要帶時呼叫 `searchJiraIssuesUsingJql` 以 `project = <PROJECT_KEY> AND sprint in openSprints()` 取得，field: `<CUSTOM_FIELD_ID>`）
+- **Team**：依 `types.md` 的全局規則，每張票都要問，不預設
 - **負責 RD**：前端 or 後端？指定誰？（不知道則後端預設 <後端負責人>、前端預設 <前端負責人>）
 - **QA**：由誰測試？（不確定略過；不需測試則掛開票者自己）
 
@@ -54,9 +54,9 @@
 
 ## Step 3：建立主票
 
-呼叫 `mcp__atlassian__createJiraIssue`：
+呼叫 Jira MCP 的 `createJiraIssue`：
 - `cloudId`、`projectKey`、`team`、`environment` 參照 SKILL.md 共用常數
-- `summary`、`issueType`、`priority`、`parentKey`、`description`、`dueDate`
+- `summary`、`issueTypeName`、`priority`、`parentKey`、`description`、`dueDate`
 - `additional_fields` 的 `<CUSTOM_FIELD_ID>` 填入 Sprint ID（整數），格式：`{"<CUSTOM_FIELD_ID>": SPRINT_ID}`（純數字，不可用物件格式）
 - `additional_fields` 包含：`<CUSTOM_FIELD_ID>`（team）、`<CUSTOM_FIELD_ID>`（environment，若有）
 - ⚠️ `<CUSTOM_FIELD_ID>` 的值必須是**純字串 ID**，不可用 `{"name": "..."}` 或 `{"id": "..."}` 物件格式

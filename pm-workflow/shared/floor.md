@@ -1,6 +1,6 @@
 # PM Floor：所有 pm-* skill 共用的底線
 
-每個 pm-* skill 都要遵守。子指令檔有更明確規定時，以子指令檔為準。
+每個 pm-* skill 都要遵守。子指令檔有更明確規定時以子指令檔為準，但「0. 每次執行先做」與「0.1 環境差異」優先於子指令檔。
 
 ---
 
@@ -13,7 +13,20 @@
 4. **規格庫路徑**：子指令檔裡的 `drafts/`、`specs/`、`archive/` 都以 pm-config 的規格庫路徑為根；git 指令用 `git -C <規格庫路徑> …`，不依賴目前目錄。
 5. **寫作規則**：寫任何規格或對外文字時，套用 `shared/writing.md`。
 6. **交付前自檢**：產出規格、AC、決策文件、release note 前，用 `pm-review` 的 `reference/review/rules.md` 快速掃一次，有 P0 先修再給。
-7. **做完提示下一步**：一句話建議接下來用哪個 skill（見 README 的工作流程），不主動執行。
+7. **做完提示下一步**：一句話建議接下來用哪個 skill（見 plugin README 的 Skill 表），不主動執行。
+
+## 0.1 環境差異（優先於子指令檔）
+
+子指令檔是照某個團隊的環境寫的，遇到不同環境時照這裡處理，不要照字面硬跑：
+
+- **落檔一律先等 GO**：子指令檔要寫入 `spec.md`、`decisions.md`、`actions.md`、`changelog.md`、`stories.md` 等任何檔案時，先列出「哪個檔、寫什麼」，使用者說 GO 才寫。子指令檔寫「直接寫」「不要只停在對話」也一樣。
+- **沒有 remote 或不是 Gitea**：pm-config 的 Git 平台是「無」或 `git remote -v` 是空的 → 跳過所有 fetch、pull、push、PR、Gitea API 步驟，回報「規格庫沒有遠端」；只做本機的部分，commit 也要先確認。Git 平台不是 Gitea → 停下來問使用者怎麼開 PR。
+- **規格庫檔案不存在時**：`decisions.md`、`actions.md`、`changelog.md`、`specs/SPEC-TOC.md`、`index.md`、`drafts/README.md`、`drafts/_meta/TEMPLATE-*` 等檔案不存在 → 有對應的 TEMPLATE 就照模板建；沒有就用最小結構（標題＋一段說明）建立，並告訴使用者。frontmatter 沒有 `spec_version` → 第一次加 frontmatter 時填 `0.1`，之後每次修改再往上加。
+- **章節以規格庫模板為準**：子指令檔寫的章節名稱只是預設；規格庫有 `drafts/_meta/TEMPLATE-spec.md` 就照它的章節。
+- **模組目錄以實際為準**：子指令檔裡的模組名稱（例如 `01-order-lifecycle`）是範例，先 `ls specs/docs/` 看實際目錄。
+- **代碼與平台讀 pm-config**：Jira 專案代碼、網域、欄位 ID、Git 平台、溝通工具一律讀 pm-config；檔案裡的 `PROJ`、`SD`、`Gitea`、`DingTalk` 是範例。
+- **憑證**：不自動從 git credential store、Keychain 取出帳密；要用之前先徵得使用者同意。
+- **嚴重度與待確認的寫法**：待確認一律 `🟡 待確認：…`，不用 `TBD`；問題清單用 P0 / P1 / P2（🟥 = P0、🟨 = P1、🟩 = P2）；`actions.md` 的待辦優先級可以用 🔴 / 🟠 / ⚪，這是唯一例外。
 
 ---
 
@@ -69,5 +82,5 @@
 
 ## 8. 部門與權責
 
-- 部門職責以全域 `CLAUDE.md` 為準（產品、營運、財務、物流、生管、客服、業務、增長傳播）。
+- 部門職責以 `~/.claude/pm-config.md` 為準（沒有才看全域 `CLAUDE.md`）（產品、營運、財務、物流、生管、客服、業務、增長傳播）。
 - CLAUDE.md 標為「待確認邊界」的權責（例：BOM 維護在營運還是生管），文件中涉及時一律標 `🟡 待確認`，不自行認定。

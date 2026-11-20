@@ -1,4 +1,4 @@
-# Weekly Recap Mode
+# weekly：個人週報
 
 ## Overview
 

@@ -10,8 +10,8 @@
 **這個 skill 不寫 `spec.md`**。它產出的是 `drafts/<sprint>/<feature>/pains/` 底下的實例
 與一則有依據的痛點結論，spec 內文的實際修改歸 `pm-spec write`。
 
-慣例對齊同層的 [cases/](../../../drafts/2606/product-master/cases/)（一實例一檔 +
-frontmatter 記來源）。共用原則見 [`../../shared/principles.md`](../../`../../shared/principles.md`)。
+慣例對齊同層的 cases/（`<規格庫>/drafts/2606/product-master/cases/`）（一實例一檔 +
+frontmatter 記來源）。共用原則見 [`../../../shared/principles.md`](../../../shared/principles.md)。
 
 預設語言：繁體中文（技術名詞保留英文）。
 
@@ -35,7 +35,7 @@ frontmatter 記來源）。共用原則見 [`../../shared/principles.md`](../../
 
 ## Step 0：開始收之前先確認（不滿足先別收）
 
-這一段與落地段的寫法見 [`../../shared/skill-contract.md`](../../`../../shared/skill-contract.md`)。
+這一段與落地段的寫法見 [`../../../shared/skill-contract.md`](../../../shared/skill-contract.md)。
 
 **接手的東西 = 一句話的痛**（在 `decisions.md` 的問題定義或 `spec.md` §1，找不到就直接問 PM）
 ＋**素材**。
@@ -140,7 +140,7 @@ collected:                # YYYY-MM-DD
 
 `source` 欄引用 repo 內的檔案時用相對 markdown 連結
 （例 `[2026-06-16-架構討論.md](../meetings/2026-06-16-架構討論.md)`），
-這條沿用 [CLAUDE.md](../../../CLAUDE.md) 的「提到檔案就要能點得開」。
+這條沿用 CLAUDE.md（`<規格庫>/CLAUDE.md`） 的「提到檔案就要能點得開」。
 日期用使用者提供的當天日期，不自行捏造。
 
 ---
@@ -151,7 +151,7 @@ collected:                # YYYY-MM-DD
 
 ### 1. 落 `decisions.md` 一則 D-x
 
-用它自己的[模板格式](../../../drafts/_meta/TEMPLATE-decisions.md)。「背景 / 問題」那欄
+用它自己的模板格式（`<規格庫>/drafts/_meta/TEMPLATE-decisions.md`）。「背景 / 問題」那欄
 寫一句有依據的痛點結論 + 支撐的 PAIN 編號清單 + 整體證據強度：
 
 > **背景 / 問題**：客服每月結帳期為了核對折扣單平均花 40 分鐘以上翻紙本，
@@ -169,7 +169,7 @@ collected:                # YYYY-MM-DD
 
 - **支撐** → 結論就位，往下走。
 - **不支撐 / 找不到實例** → **這是要回報 PM 的訊號，不是失敗。**
-  轉一筆進 [actions.md](../../../drafts/_meta/TEMPLATE-actions.md)，標 🔴 BLOCK：
+  轉一筆進 actions.md（`<規格庫>/drafts/_meta/TEMPLATE-actions.md`），標 🔴 BLOCK：
   「這條痛點目前沒有實例支撐，開工前要確認它是否存在」。
 
   **不要為了讓規格好看而降低立檔標準。** 找不到實例有兩種可能——
@@ -197,7 +197,7 @@ collected:                # YYYY-MM-DD
 - [ ] `decisions.md` 的痛點結論已寫：一句結論 + PAIN 編號 + 整體證據強度，**不內嵌長文**。
 - [ ] 證據不支撐那句痛時**已轉一筆 `actions.md` 標 🔴 BLOCK**，未灌水放行。
 - [ ] 正文沒有欄位名（`evidence` 只住 frontmatter，見
-      [`../../shared/principles.md`](../../`../../shared/principles.md`)）。
+      [`../../../shared/principles.md`](../../../shared/principles.md)）。
 
 **提醒，不擋路**（沒做到會提一句，但可以往下）
 

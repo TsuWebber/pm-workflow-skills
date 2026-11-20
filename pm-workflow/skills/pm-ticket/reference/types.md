@@ -1,4 +1,4 @@
-# ticket：建立 Jira 工單（原 jira-create-ticket）
+# 票型判斷與共用規則
 
 > 路徑說明：本檔提到的票型檔都在 `reference/ticket/`。票型檔內寫的 `references/xxx.md` 指 `reference/ticket/references/xxx.md`。
 
@@ -8,14 +8,15 @@
 
 根據使用者的描述或上游 skill 傳入的資訊，判斷屬於哪種情境，讀取對應的規格檔並照著執行：
 
-| 情境 | 判斷條件 | 規格檔 |
-|------|---------|--------|
-| **簡道雲** | 由上游的通報自動化（`webpage-to-jira`，未收錄於本 repo） 傳入已分析的通報資料 | `ticket/jiandaoyun.md` |
-| **Bug 票** | 功能異常、不符預期、錯誤（非 Sprint 測試期間） | `ticket/bug.md` |
-| **Sprint Bug 票** | Sprint 測試期間發現的 bug，需掛在 Epic 的 bug 專區 | `ticket/sprint-bug.md` |
-| **需求票** | 附有 Notion spec 連結，需要批次建立 Epic + Story | `ticket/pm-story.md` |
-| **優化票** | UI/UX 優化、體驗改善、配套溝通 Story | `ticket/optimization.md` |
-| **工作票** | 技術工作、調查、資料修補、日常任務（Task） | `ticket/task.md` |
+| 情境 | 子指令 | 判斷條件 | 規格檔 |
+|------|------|---------|--------|
+| **表單通報** | `form` | 由上游的通報自動化（`webpage-to-jira`，未收錄於本 repo） 傳入已分析的通報資料 | `ticket/jiandaoyun.md` |
+| **Bug 票** | `bug` | 功能異常、不符預期、錯誤（非 Sprint 測試期間） | `ticket/bug.md` |
+| **Sprint Bug 票** | `sprint-bug` | Sprint 測試期間發現的 bug，需掛在 Epic 的 bug 專區 | `ticket/sprint-bug.md` |
+| **需求票** | `story` | 附有 Notion spec 連結，需要批次建立 Epic + Story | `ticket/pm-story.md` |
+| **優化票** | `optimization` | UI/UX 優化、體驗改善、配套溝通 Story | `ticket/optimization.md` |
+| **工作票** | `task` | 技術工作、調查、資料修補、日常任務（Task） | `ticket/task.md` |
+| **技術票** | `tech` | 技術債、重構、基礎建設，需指定負責 RD | `ticket/tech.md` |
 
 若無法判斷，直接問使用者是哪種情境。
 
@@ -65,7 +66,7 @@ Sprint 填入條件（需全部成立）：
 ---
 
 > **共用常數**
-> - `projectKey`: `SD`（可被環境變數 `JIRA_PROJECT_KEY` 覆蓋）
+> - `projectKey`: 讀 pm-config 的 Jira 專案代碼
 > - `team_field_id`: `<CUSTOM_FIELD_ID>`（建票時放在 `additional_fields` 內；值不可預設，每次詢問使用者後才填入，見下方「全局規則：Team 欄位」）
 > - `environment_field_id`: `<CUSTOM_FIELD_ID>`，允許值：`Dev` / `Alpha` / `Beta` / `Production`
 

@@ -55,7 +55,7 @@ description 依子類型選擇：
 呼叫 `createJiraIssue`：
 ```
 cloudId:       {站台 GUID，見 SKILL.md 共用常數}
-projectKey:    SD
+projectKey:    <PROJECT_KEY>
 issueTypeName: Story
 summary:       （依子類型格式）
 contentFormat: adf

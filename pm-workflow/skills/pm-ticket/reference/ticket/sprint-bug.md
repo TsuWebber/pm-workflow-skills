@@ -24,7 +24,7 @@ parent = {EPIC_KEY} AND summary ~ "[QA] 測試BUG專區"
 
 取得 `[QA] 測試BUG專區` 的 Issue Key（以下稱 `BUG_AREA_KEY`）。
 
-若找不到，通知使用者該 Epic 尚未建立 bug 專區，詢問是否要先執行 Type 2 流程。
+若找不到，通知使用者該 Epic 尚未建立 bug 專區，詢問是否要先建立 bug 專區（在該 Epic 底下建一張標題為 `[QA] 測試BUG專區` 的 Story）。
 
 ---
 

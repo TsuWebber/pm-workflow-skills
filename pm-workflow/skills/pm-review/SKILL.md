@@ -28,7 +28,7 @@ argument-hint: "<qa|readers|edge|impact|consistency|polish|preflight|all> [spec.
 
 ### preflight 要在獨立 context 跑
 
-`preflight` 刻意看不到前面的對話，避免作者的說明影響審查。用 Agent 工具開一個 subagent 執行：prompt 寫明 `reference/preflight.md` 的完整路徑、規格庫路徑、要審的 feature 路徑，其他對話內容一律不帶。subagent 只讀不寫，結果回報給使用者。
+`preflight` 刻意看不到前面的對話，避免作者的說明影響審查。用 Agent 工具開一個 subagent 執行：prompt 寫明 `reference/preflight.md` 的完整路徑、規格庫路徑、要審的 feature 路徑、pm-config 的路徑、共用底線 `shared/floor.md` 的完整路徑（要它照「0.1 環境差異」處理沒有遠端等情況），其他對話內容一律不帶；並寫明「專有名詞只依 pm-config，不套用全域 CLAUDE.md 的公司用語」。subagent 只讀不寫，結果回報給使用者。
 
 ### all
 
@@ -36,4 +36,4 @@ argument-hint: "<qa|readers|edge|impact|consistency|polish|preflight|all> [spec.
 
 ## 沒帶子指令
 
-依文件目前的狀態建議：剛寫完 → `qa` 或 `all`；要送審 → `preflight`；文字太長或用語亂 → `polish`。列出建議後只問這一題。
+先讀目標文件判斷成熟度，再建議：剛寫完 → `qa` 或 `all`；要送審 → `preflight`；文字太長或用語亂 → `polish`。列出建議後只問這一題。

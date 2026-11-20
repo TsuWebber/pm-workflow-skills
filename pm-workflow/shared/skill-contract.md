@@ -56,7 +56,7 @@ kernel 的原則不在場，上一支 skill 的對話也可能已經被壓縮掉
 ```markdown
 ## Step 0：開始<動作>之前先確認（不滿足先別<動作>）
 
-這一段與落地段的寫法見 [`../../shared/skill-contract.md`](../../`../../shared/skill-contract.md`)。
+這一段與落地段的寫法見 [`skill-contract.md`](skill-contract.md)。
 
 **接手的東西 = <一句話：這一步吃什麼>**（<在哪找、預設落點>）。
 
@@ -109,7 +109,7 @@ kernel 的原則不在場，上一支 skill 的對話也可能已經被壓縮掉
 沒明講的話，模型會順手改。
 
 `decisions.md`、`actions.md`、`changelog.md` 一律沿用
-[drafts/_meta/](../../drafts/_meta/) 的模板格式，不另立一套寫法。
+drafts/_meta/（`<規格庫>/drafts/_meta/`） 的模板格式，不另立一套寫法。
 
 ---
 

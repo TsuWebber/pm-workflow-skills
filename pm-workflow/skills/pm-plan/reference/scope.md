@@ -1,4 +1,4 @@
-# Spec Plan（動筆前想清楚）
+# scope：動筆前想清楚
 
 ## 定位
 
@@ -47,8 +47,8 @@
 
 spec repo 本身就是模組地圖。依功能領域讀對應區塊，找出會碰到什麼：
 
-1. **看現況全貌** → 對應模組 `specs/docs/<模組>/_index.md`；不確定是哪個模組看 `index.md` 的導覽表。
-2. **看後端邏輯** → `specs/docs/` 的 8 大模組（訂單生命週期 / 金流與發票 / 出貨與物流 / ERP 整合 / 商品與行銷 / 會員與權限 / 外部平台整合 / 系統基礎設施）。
+1. **看現況全貌** → 對應模組 `specs/docs/<模組>/_index.md`；不確定是哪個模組，先看 `index.md` 的導覽表；沒有就 `ls specs/docs/`。
+2. **看後端邏輯** → `specs/docs/` 底下的模組（以實際目錄為準；以下是範例：訂單生命週期 / 金流與發票 / 出貨與物流 / ERP 整合 / 商品與行銷 / 會員與權限 / 外部平台整合 / 系統基礎設施）。
 3. **看畫面行為與 URL 對照** → 對應模組 `specs/docs/<模組>/_index.md`（含原 frontend 的頁面/Dialog 商業規則與 Route Mapping 表）。
 
 輸出「模組連動確認」：
@@ -56,9 +56,9 @@ spec repo 本身就是模組地圖。依功能領域讀對應區塊，找出會�
 ```
 📦 模組連動確認
 功能類型：[新功能 / 優化功能]
-主要模組：[會發生在哪，附連結，例 [coupon](specs/docs/05-product-and-marketing/coupon/_index.md)]
+主要模組：會發生在哪，附連結，例 [coupon（`<規格庫>/specs/docs/05-product-and-marketing/coupon/_index.md`）]
 連動模組：
-- [模組名](specs/docs/<模組>/<capability>/_index.md) — [為何連動]
+- 模組名（`<規格庫>/specs/docs/<模組>/<capability>/_index.md`） — [為何連動]
 ⚠️ 已知限制 / 落差：
 - [限制或現況落差] → 你打算怎麼處理？
 📊 數據支持：
@@ -118,11 +118,11 @@ spec repo 本身就是模組地圖。依功能領域讀對應區塊，找出會�
 放行且方向收斂後，建立 feature 資料夾骨架 —— **這是本 skill 的實際產出**：
 
 1. **確認 sprint 與 slug**：問「這個放哪個 sprint？」（如 `2607`）、給 feature 一個英文 slug（如 `product-master`）。
-2. **建 `drafts/<sprint>/<feature-slug>/`**，從 `drafts/_meta/TEMPLATE-*.md` 複製四檔 + `meetings/`：
+2. **建 `drafts/<sprint>/<feature-slug>/`**，從 `drafts/_meta/TEMPLATE-*.md` 複製（缺哪份模板就依共用底線「規格庫檔案不存在時」建最小結構）+ `meetings/`（放一個 `.gitkeep`，空資料夾 git 不會追蹤）：
    `spec.md`、`decisions.md`、`actions.md`、`changelog.md`。
 3. **`decisions.md` 寫第一則 `D-1`（問題定義與方向）**：背景 / 問題、考慮過的選項、方向決定、來源；把 Step 2–3 的結論寫進去。數據不足處標「假設」。
 4. **`actions.md` 填 open questions**：Step 1 的限制處理、待確認數據、未定範圍，用 🔴 BLOCK / 🟠 次高 / ⚪ 低風險 分級。
-5. **`spec.md` 只填骨架**：frontmatter（`title` / `feature` / `sprint` / `discipline` / `owners` / `refs`）+ 「1. Goal & Success Criteria」「2. Scope (In / Out)」先寫方向共識；**其餘章節留白給 `pm-spec write`**。
+5. **`spec.md` 只填骨架**：frontmatter（`title` / `feature` / `sprint` / `discipline` / `owners` / `refs`）+ 模板裡的「目標」與「範圍」兩節（章節名稱以規格庫模板為準）先寫方向共識；**其餘章節留白給 `pm-spec write`**。
 6. **`changelog.md` 記一筆**：`<日期> · sprint <x> · spec_version 0.1` — `[新增] 初版骨架建立（pm-plan scope）`。日期用使用者提供的當天日期，不自行捏造。
 
 > 資料夾 / 檔案的建立**不需要 PM 碰 git**；之後要送出用 `pm-ship`。
@@ -144,5 +144,5 @@ spec repo 本身就是模組地圖。依功能領域讀對應區塊，找出會�
 - 一律繁體中文，語言 PM / 設計 / RD 都看得懂。
 - 每輪先短、先收斂，不一次展開太多；只問真正能推進決策的 1–2 題。
 - 不寫完整 spec 內文（那是 `pm-spec write`）；本 skill 只到「方向 + 資料夾骨架」。
-- 跨檔引用一律用相對 markdown 連結，指到具體檔案（含 `.md`）。從 `drafts/<sprint>/<feature>/` 引用現況規格要退三層，例 `[order-management](../../../specs/docs/01-order-lifecycle/order-management/_index.md)`；對話中回報時用 workspace 根相對路徑即可（例 `[order-management](specs/docs/01-order-lifecycle/order-management/_index.md)`）。不要用 `[[...]]` wiki 連結。
+- 跨檔引用一律用相對 markdown 連結，指到具體檔案（含 `.md`）。從 `drafts/<sprint>/<feature>/` 引用現況規格要退三層，例 `[order-management](../../../specs/docs/01-order-lifecycle/order-management/_index.md)`；對話中回報時用 workspace 根相對路徑即可（例 `[order-management](../../../specs/docs/01-order-lifecycle/order-management/_index.md)`）。不要用 `[[...]]` wiki 連結。
 - 未定案的不臆測 → 進 `actions.md`；「為什麼」進 `decisions.md`。

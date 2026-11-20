@@ -7,9 +7,7 @@ Create well-structured git commits with conventional commit messages that clearl
 This repo is a **Markdown spec knowledge base** on **Gitea** (no application code). Hand-edited areas are
 `drafts/`, `archive/`, and repo docs (`index.md`, `README.md`, `CLAUDE.md`). The folders `specs/` (backend
 business logic) and `userflows/` are **synced from other repos** — if they appear in staged changes,
-flag it to the user before committing rather than assuming it's intended. (Note: `specs/` also holds
-front-end-derived business rules and Route Mapping tables added during the 2609 restructure, which are
-maintained in this repo; `frontend/` and `routes/` no longer exist — they were merged into `specs/`.)
+flag it to the user before committing rather than assuming it's intended.
 
 ## Instructions
 
@@ -21,7 +19,7 @@ When committing changes, follow these steps:
    - `git diff` to see unstaged changes
    - `git log --oneline -5` to see recent commit style
 
-2. **Do NOT stage changes** - Only commit what is already staged. If there are no staged changes, inform the user and ask them to stage the files they want to commit
+2. **Do NOT stage changes** (when used standalone) - Only commit what is already staged. When called from `ship.md`, follow ship's staging rule instead (it stages `drafts/` itself). If there are no staged changes, inform the user and ask them to stage the files they want to commit
 
 3. **Analyze the changes** - Review what's being committed:
    - What files are affected?
@@ -66,7 +64,7 @@ When committing changes, follow these steps:
 
 ## Safety
 
-- Never stage changes automatically - only commit what the user has already staged
+- Never stage changes automatically when used standalone - only commit what the user has already staged (inside `pm-ship`, follow ship's staging rule)
 - Never use `--force` or destructive commands
 - Never skip hooks with `--no-verify` unless explicitly asked
 - Never amend commits that have been pushed

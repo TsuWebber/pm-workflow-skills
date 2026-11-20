@@ -35,7 +35,7 @@ spec repo 的 **鎖定 spec 模板**（Story 敘事）、工程師拿來 plan �
 1. **定位資料夾** `drafts/<sprint>/<feature>/`。
    - 沒有 → 提示「先用 `pm-plan scope` 建骨架」，或當場照 `drafts/_meta/TEMPLATE-*` 補建。
 2. **讀四檔**：`spec.md`（現況）、`decisions.md`（已定案結論的來源）、`actions.md`（未定案 —— **這些不准寫進 spec**）、`changelog.md`（改過什麼）。
-3. **對照鎖定模板** [TEMPLATE-spec.md](../../../drafts/_meta/TEMPLATE-spec.md) 的章節結構（Background & Goal → Success Metrics → Scope → Definitions → Story 與規格 → Jira / Release Note → 待確認事項）—— 章節順序固定，不得新增 / 刪除 / 重排，某章無內容寫 `（無）`。
+3. **對照鎖定模板** TEMPLATE-spec.md（`<規格庫>/drafts/_meta/TEMPLATE-spec.md`） 的章節結構（以規格庫實際的模板為準；以下是預設：Background & Goal → Success Metrics → Scope → Definitions → Story 與規格 → Jira / Release Note → 待確認事項）—— 章節順序固定，不得新增 / 刪除 / 重排，某章無內容寫 `（無）`。
 
 > 若來源是 Notion 大文件（搬遷情境）：把它按性質拆進各檔 —— 規格進 `spec.md`、為什麼進 `decisions.md`、待辦進 `actions.md`、會議進 `meetings/`。**只寫進 spec repo，不回寫 Notion。**
 
@@ -102,22 +102,22 @@ spec repo 的 **鎖定 spec 模板**（Story 敘事）、工程師拿來 plan �
 
 ## AC 撰寫（各 STORY 的 `<details>` 驗收條件）
 
-編號 `STORY-xxx · AC-nnnn`，每個 STORY 內連續遞增；格式固定，方便日後接 `pm-ticket spec`：
+編號 `STORY-xxx · AC-nnnn`，AC 號碼整份 spec 連續遞增（AC-0001 起，換 STORY 不重來）；格式固定，方便日後接 `pm-ticket spec`：
 
 - **共通前提**：跨情境都成立的前提寫在 `<details>` 開頭一行，避免每條 AC 重複。
 - **分兩段**：「要看畫面才驗得出來（N 條）」「看資料就驗得出來（N 條）」；N 要和實際條數一致。
-- **每條 AC**：`**STORY-xxx · AC-nnnn** — [標籤] 白話描述` ＋ Given / When / Then。標籤用固定的**九標籤**；手上沒有該清單就問 PM，不自創標籤。
+- **每條 AC**：`**STORY-xxx · AC-nnnn** — [標籤] 白話描述` ＋ Given / When / Then。標籤從這九個選：主線、分支、邊界、例外、權限、狀態、金額、通知、資料；團隊有自己的標籤清單就寫在 pm-config，以 pm-config 為準。
 - **數量看複雜度**：簡單（單一主線、無分支）2 條；中等（1–2 條件分支或有例外 / 空狀態）3–4 條；複雜（3+ 分支、多角色 / 跨系統、權限隔離）不設上限。
 - **覆蓋順序**：① Happy path（必寫）② 每個獨立條件分支各一條 ③ 最高優先的邊界 / 例外（上限值、空狀態、異常處理）。
-- **`actions.md` 裡還沒定案（open question）的項目 → 跳過不寫 AC**，在該 STORY 的 `<details>` 內標「⚠️ 待確認，AC 待補」。
+- **`actions.md` 裡還沒定案（open question）的項目 → 跳過不寫 AC**，在該 STORY 的 `<details>` 內標 `🟡 待確認：AC 待補（見 actions.md）`。
 - `When` 單一觸發動作；`Then` 寫可觀察、可驗證的結果，**不寫實作細節**（API 欄位、DB 欄位）；每條聚焦一個驗證點。
 
-格式：
+格式（以規格庫模板為準；模板沒寫就用這個）：
 ```
 **STORY-001 · AC-0001** — [標籤] 可驗證的情境標題
-- Given: 前提條件
-- When: 使用者操作
-- Then: 可觀察、可驗證的結果
+- Given 前提條件
+- When 使用者操作
+- Then 可觀察、可驗證的結果
 ```
 
 > AC 對齊 `pm-ticket spec` 產出的 User Story AC —— 寫清楚這裡，拆票時 QA 直接可用。

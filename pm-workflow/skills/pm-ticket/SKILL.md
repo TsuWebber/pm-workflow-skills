@@ -25,4 +25,4 @@ argument-hint: "<spec|bug|sprint-bug|task|optimization|story|tech|form> [描述 
 
 ## 沒帶子指令
 
-依描述判斷票型：附規格路徑 → `spec`；描述功能異常 → `bug`；其他情況照 `reference/types.md` 的判斷表。無法判斷就問這一題。
+依描述判斷票型：附規格路徑 → `spec`；描述功能異常 → 先問「是不是 Sprint 測試期間發現的」，是 → `sprint-bug`、否 → `bug`；其他情況照 `reference/types.md` 的判斷表。無法判斷就問這一題。

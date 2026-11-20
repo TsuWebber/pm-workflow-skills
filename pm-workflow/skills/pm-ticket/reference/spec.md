@@ -13,8 +13,8 @@ pm-ticket spec [parent_key] [draft_path]
 
 | 參數 | 必填 | 說明 | 預設 |
 |---|---|---|---|
-| `[parent_key]` | 否 | 要掛的 Epic / Story key(例:`SD-xxxxx`) | 未提供則取草稿 frontmatter 的 `refs.jira_epic`;仍無則詢問;再無 → 建為獨立 Story 並互相 link |
-| `[draft_path]` | 否 | 指定草稿檔 | 未提供則取當前變更中的 `drafts/*.md` |
+| `[parent_key]` | 否 | 要掛的 Epic / Story key(例:`PROJ-123`) | 未提供則取草稿 frontmatter 的 `refs.jira_epic`;仍無則詢問;再無 → 建為獨立 Story 並互相 link |
+| `[draft_path]` | 否 | 指定草稿檔或 feature 資料夾（資料夾 → 讀其中的 `spec.md`） | 未提供則取當前變更中的 `drafts/*.md` |
 
 ---
 
@@ -22,16 +22,17 @@ pm-ticket spec [parent_key] [draft_path]
 
 ### 1. 前置檢查
 
-- 確認 Atlassian MCP 可用(`atlassianUserInfo`);不可用 → 提示 `/mcp` 授權後停止。
+- 確認 Atlassian MCP 可用(`atlassianUserInfo`);不可用 → 仍照下面步驟產出票的草稿給使用者，最後提示 `/mcp` 授權後才能建票。
 - 找出目標草稿:
   - 有 `[draft_path]` → 用它。
-  - 否則掃 `git status --porcelain drafts/` + `git diff -- drafts/`,取這次變動的 `drafts/<sprint>/*.md`。
+  - 否則掃 `git status --porcelain drafts/` + `git diff -- drafts/`,取這次變動的 `drafts/<sprint>/<feature>/spec.md`。
+  - 只給一個參數時依格式判斷：像 `PROJ-123` 的是 `parent_key`，其他當成 `draft_path`。
   - **只認 `drafts/`**;若沒有 draft 變更 → 告知並停止(這條指令的來源是草稿,不是任意 code diff)。
 
 ### 2. 讀懂草稿（不是只看 diff）
 
-- **完整讀取**變動的草稿檔內容與 frontmatter(`title`、`sprint`),理解整個功能,而不是只讀 diff 幾行。
-- 若草稿仍有 `TBD` / 「待釐清」未定案 → 記下來,建票時寫進「待確認」,並在輸出提醒 spec 尚未定案。
+- **完整讀取**變動的草稿檔內容與 frontmatter(`title`、`sprint`;沒有 frontmatter 就從路徑 `drafts/<sprint>/<feature>/` 推 sprint 與名稱),理解整個功能,而不是只讀 diff 幾行。
+- 若草稿仍有 `🟡 待確認` / `TBD` / 「待釐清」未定案 → 記下來,建票時寫成 `🟡 待確認：…`,並在輸出提醒 spec 尚未定案。
 
 ### 3. 依內容拆 FE / BE
 
@@ -46,7 +47,7 @@ pm-ticket spec [parent_key] [draft_path]
 
 用 `createJiraIssue` 建立,每個 discipline 一張:
 
-- **Project**:`SD`
+- **Project**:`<PROJECT_KEY>`（pm-config 的 Jira 專案代碼）
 - **Issue Type**:`Story`(User Story)
 - **Parent**:`[parent_key]`(若有且階層允許);否則建為獨立 Story
 - **Summary**:`[BE] <功能名>` / `[FE] <功能名>`
@@ -71,10 +72,10 @@ pm-ticket spec [parent_key] [draft_path]
 - [ ] AC2: ...
 
 ## 待確認(如 draft 仍未定案)
-- {TBD / 待釐清項目}
+- 🟡 待確認：{未定案項目}
 
 ## 來源規格
-- draft: `drafts/<sprint>/<slug>.md`
+- draft: `drafts/<sprint>/<feature>/spec.md`
 ```
 
 - **BE 模板**偏重:API 合約、資料欄位、業務規則、狀態流轉。
@@ -90,7 +91,7 @@ pm-ticket spec [parent_key] [draft_path]
 ```
 ✅ 依 draft 建立 User Story 完成
 
-📄 來源草稿: drafts/<sprint>/<slug>.md
+📄 來源草稿: drafts/<sprint>/<feature>/spec.md
 
 🎫 建立的 ticket
 - [BE] <title> — <key> — <url>
@@ -98,7 +99,7 @@ pm-ticket spec [parent_key] [draft_path]
 - Parent: <parent_key 或「獨立 Story,已互相 link」>
 
 ⚠️ 尚有未定案項目(如有):
-- {列出 TBD / 待釐清}
+- 🟡 待確認：{列出未定案項目}
 ```
 
 ---

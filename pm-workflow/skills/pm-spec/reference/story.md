@@ -14,7 +14,7 @@ pm-spec story [draft_path] [output_path]
 
 | 參數 | 必填 | 說明 | 預設 |
 |---|---|---|---|
-| `[draft_path]` | 否 | 指定 `drafts/` 底下的規格檔（通常是 `drafts/<sprint>/<feature>/spec.md`） | 未提供則掃 `git status --porcelain drafts/` 取這次變動的 draft;仍找不到或有多個候選 → 列出並詢問 |
+| `[draft_path]` | 否 | 指定 `drafts/` 底下的規格檔（通常是 `drafts/<sprint>/<feature>/spec.md`）；給資料夾就讀其中的 `spec.md` | 未提供則掃 `git status --porcelain drafts/` 取這次變動的 draft;仍找不到或有多個候選 → 列出並詢問 |
 | `[output_path]` | 否 | 輸出檔位置 | 見「輸出位置規則」 |
 
 ---
@@ -54,13 +54,13 @@ spec 已是 Story 結構：**沿用 spec 的 STORY 編號與 User Story，不重
 - 以**業務價值**為維度拆故事,每個 Story 用 `As a / I want / So that` 描述。
 - Actor 一律用 Business Role（取自各 STORY 的 `As a`,如:客戶、物流人員、客服人員）,禁止 RD/QA/前端/後端。
 - 每個 Story 附一段 Gherkin,**必須同時涵蓋 Happy Path 與 Unhappy Path**。
-- **標出與現況的關係**:若 spec 指出該 Story 對應現況已存在的行為（該 STORY 功能規則內指向 `specs/` 現況規格的連結，或寫明「現況 → 本版」差異處）,
+- **標出與現況的關係**:先用 `pm-spec search` 的方法比對 `specs/` 同模組的現況規格；若 spec 指出或比對到該 Story 對應現況已存在的行為（該 STORY 功能規則內指向 `specs/` 現況規格的連結，或寫明「現況 → 本版」差異處）,
   US 標頭加一行 `對齊現況:[<story 名>](../../../specs/docs/<模組>/<capability>/stories/<story>.feature.md)（本次變更:<一句話>）`;全新行為標 `🆕 新增`。
 - **對齊現況的 US 要帶原測資**:讀取對應的現況 story（`specs/` 下的 `.feature.md`,唯讀,只取不改）,
   把既有 Scenario / Examples **併入該 US 當 baseline（不標記）**,再疊上本次變更的列（標 `# ← v<版本> 新增/修改`）。
   工程師在同一張 Examples 表就看到「原本的測資 ＋ 這次加的」,不用另開現況檔對照。
-  現況檔找不到或對應不明 → US 標 `TBD（現況對應未明）` 並收進「待釐清」,不要硬湊 baseline。
-- Gherkin 撰寫**完全遵循 [output-story.md](./output-story.md) 裡的「DDD Gherkin 撰寫規範」「Scenario 判斷矩陣」「Scenario 撰寫風格」**（先讀取該檔再動筆,不要憑印象）。要點:
+  現況檔找不到或對應不明 → US 標 `🟡 待確認：現況對應未明` 並收進「待釐清」,不要硬湊 baseline。
+- Gherkin 撰寫**完全遵循 [reverse-story.md](reverse-story.md) 裡的「DDD Gherkin 撰寫規範」「Scenario 判斷矩陣」「Scenario 撰寫風格」**（先讀取該檔再動筆,不要憑印象）。要點:
   - 用業務語言,禁 UI 元件 / UI 操作 / API HTTP / 技術實作詞彙。
   - 一個 Scenario = 一條 Business Rule;同規則多變體用 `Scenario Outline` + `Examples`。
   - 共用前提抽 `Background`;用結果描述,不用過程描述。
@@ -72,8 +72,8 @@ spec 已是 Story 結構：**沿用 spec 的 STORY 編號與 User Story，不重
 
 ### 6. 待釐清（不臆測）
 
-- spec 裡的 `TBD（規格未明）`、actions.md 裡未定案的項目 → 收進輸出檔的「待釐清」章節,**不自行拍板補完情境**。
-- 某個 Story 因未定案而寫不出完整 Scenario → Story 保留,Gherkin 處標 `TBD（規格未明,見待釐清 #n）`。
+- spec 裡的 `🟡 待確認` / `TBD`、actions.md 裡未定案的項目 → 收進輸出檔的「待釐清」章節,**不自行拍板補完情境**。
+- 某個 Story 因未定案而寫不出完整 Scenario → Story 保留,Gherkin 處標 `🟡 待確認：規格未明,見待釐清 #n`。
 
 ### 7. 輸出檔案
 
@@ -133,7 +133,7 @@ spec 已是 Story 結構：**沿用 spec 的 STORY 編號與 User Story，不重
 - [刪除] US-3: <標題>（對應 STORY 已從 spec 移除）
 
 ⚠️ 未覆蓋項目(如有): STORY-004 某規則（純技術項）
-⚠️ 待釐清(如有): {列出 TBD}
+⚠️ 待釐清(如有): {列出 🟡 待確認項目}
 
 ⚠️ 潛在衝突(如有):
 - 2609/hk-sf-selfpickup 也對齊 specs/docs/03-shipment-and-logistics/.../free-shipping.feature.md
@@ -166,7 +166,7 @@ generated_by: pm-spec story
 **So that** <業務價值>
 
 覆蓋:STORY-001 / AC-0001, AC-0002
-對齊現況:[<story 名>](../../../specs/docs/<模組>/<capability>/stories/<story>.feature.md)（本次變更:<一句話>）｜或 🆕 新增
+對齊現況:<story 名>（`<規格庫>/specs/docs/<模組>/<capability>/stories/<story>.feature.md`）（本次變更:<一句話>）｜或 🆕 新增
 
 ```gherkin
 Feature: <功能>
@@ -222,7 +222,7 @@ Feature: <功能>
 ## 定位與分工（常見疑問）
 
 - **會不會寫進 `specs/`?** 不會。輸出永遠在 `drafts/<sprint>/<feature>/`;`specs/` 是現況區（後端規則由 oms 同步,改了會被下次同步覆蓋）。feature 上線後整個資料夾由 `pm-launch archive` 封存,stories.md 跟著資料夾走。
-- **PM 改了 spec 怎麼辦?** spec.md 是唯一真相:PM 照原流程改 spec（[changelog](../../drafts/_meta/TEMPLATE-changelog.md) 落一筆 + `spec_version` +0.1）→ 重跑 `pm-spec story`。stories.md 整份重生,「Story 異動紀錄」會留下這次哪些 US / Scenario 變了;`source_spec_version` 落後於 spec.md 的 `spec_version` 就代表 stories 過期該重跑。
+- **PM 改了 spec 怎麼辦?** spec.md 是唯一真相:PM 照原流程改 spec（changelog（`<規格庫>/drafts/_meta/TEMPLATE-changelog.md`） 落一筆 + `spec_version` +0.1）→ 重跑 `pm-spec story`。stories.md 整份重生,「Story 異動紀錄」會留下這次哪些 US / Scenario 變了;`source_spec_version` 落後於 spec.md 的 `spec_version` 就代表 stories 過期該重跑。
 - **工程師拿什麼實作?** 三層分工:
   - `spec.md` — 技術權威(欄位、API、狀態機、流程),實作細節看這裡;
   - `pm-ticket spec` 產的 JIRA Story — 工作項與驗收條件,排程與指派看這裡;

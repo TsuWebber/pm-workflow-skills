@@ -1,0 +1,17 @@
+{
+  "name": "pm-workflow-skills",
+  "version": "1.0.0",
+  "description": "一位軟體 PM 實際工作中最常用的 Claude Code skill：決策文件、release note、Jira 開票、文件審查與補強（繁體中文）。",
+  "owner": {
+    "name": "TsuWebber",
+    "url": "https://github.com/TsuWebber"
+  },
+  "plugins": [
+    {
+      "name": "pm-workflow",
+      "description": "一個 /pm skill、9 個子指令：init、decide、release、ticket、review、harden、impact、distill、clarify。",
+      "source": "./pm-workflow",
+      "category": "product-management"
+    }
+  ]
+}

@@ -8,7 +8,7 @@
 |---|---|---|
 | 0 準備 | [`pm-setup`](skills/pm-setup/SKILL.md) | `init` 專案背景、`tools` 工具安裝、`sync` 規格庫更新 |
 | 1 收素材 | [`pm-intake`](skills/pm-intake/SKILL.md) | `notion` Notion 規格與圖片、`meeting` 會議記錄、`material` 零散素材 |
-| 1 調研 | [`pm-discover`](skills/pm-discover/SKILL.md) | `cases` 解法案例、`pains` 痛點證據 |
+| 1 調研 | [`pm-discover`](skills/pm-discover/SKILL.md) | `cases` 解法案例、`compete` 競品實測、`pains` 痛點證據 |
 | 1 定方向 | [`pm-plan`](skills/pm-plan/SKILL.md) | `scope` 範圍與 drafts、`decide` 決策文件 |
 | 2 寫規格 | [`pm-spec`](skills/pm-spec/SKILL.md) | `write` spec.md、`story` / `flow` 從草稿產出、`reverse` 從程式碼反推、`search` 查現況 |
 | 3–5 審查 | [`pm-review`](skills/pm-review/SKILL.md) | `qa`、`readers`、`edge`、`impact`、`consistency`、`polish`、`preflight`、`all` |

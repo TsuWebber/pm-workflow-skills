@@ -1,5 +1,10 @@
 # Changelog
 
+## 3.2.0（2026-11-24）
+
+- `pm-discover` 新增子指令 `compete`：一間競品派一個 subagent 平行調研，用公開資料、前台實測、後台只讀三種查法，主 agent 核對後產出比較矩陣與 CASE 檔
+- `cases` 的素材來源補上 `compete`，兩者的 CASE 格式相同，實測完直接接 `cases` 收斂
+
 ## 3.1.0（2026-11-20）
 
 - 依實際叫用測試修正：所有落檔先等 GO（`pm-review qa` 原本會直接寫檔）

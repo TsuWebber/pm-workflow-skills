@@ -1,6 +1,6 @@
 {
   "name": "pm-workflow-skills",
-  "version": "3.1.0",
+  "version": "3.2.0",
   "description": "一位軟體 PM 實際工作的完整流程：從定方向、寫規格、審查、送審、開票、上線，到每天的進度同步（繁體中文）。",
   "owner": {
     "name": "TsuWebber",
